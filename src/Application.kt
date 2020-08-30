@@ -6,6 +6,8 @@ import io.ktor.features.*
 import io.ktor.jackson.*
 import io.ktor.locations.*
 import io.ktor.routing.*
+import io.ktor.server.engine.*
+import io.ktor.server.netty.*
 import io.ktor.util.*
 import net.ambitious.sharebookmarks.index.IndexRouter.index
 import net.ambitious.sharebookmarks.notifications.NotificationsRouter.notifications
@@ -39,3 +41,6 @@ fun Application.module() {
   )
 }
 
+fun main(args: Array<String>) {
+  embeddedServer(Netty, commandLineEnvironment(args)).start()
+}
