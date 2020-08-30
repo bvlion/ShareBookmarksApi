@@ -23,5 +23,5 @@
 
 ## EndPoint
 
-- [users]()
-- [notifications]()
+- [users](https://github.com/bvlion/ShareBookmarksApi/blob/master/doc/users.md)
+- [notifications](https://github.com/bvlion/ShareBookmarksApi/blob/master/doc/notifications.md)
