@@ -15,7 +15,7 @@ apply plugin: 'war'
 apply plugin: 'com.google.cloud.tools.appengine'
 
 group 'net.ambitious.sharebookmarks'
-version '0.0.1'
+version '1.0.0'
 mainClassName = "io.ktor.server.netty.EngineMain"
 
 sourceSets {

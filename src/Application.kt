@@ -7,6 +7,7 @@ import io.ktor.jackson.*
 import io.ktor.locations.*
 import io.ktor.routing.*
 import io.ktor.util.*
+import net.ambitious.sharebookmarks.index.IndexRouter.index
 import net.ambitious.sharebookmarks.notifications.NotificationsRouter.notifications
 import net.ambitious.sharebookmarks.users.UsersRouter.users
 import org.koin.ktor.ext.Koin
@@ -25,6 +26,7 @@ fun Application.module() {
     }
   }
   routing {
+    index()
     users()
     notifications()
   }
