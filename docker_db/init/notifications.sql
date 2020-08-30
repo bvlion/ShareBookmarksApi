@@ -5,6 +5,7 @@ CREATE TABLE notifications
     subject TEXT NOT NULL COMMENT '本文',
     url VARCHAR(512) NULL COMMENT '遷移先',
     target_premium TINYINT(4) NOT NULL DEFAULT '0' COMMENT 'プレミアム限定フラグ',
+    target_date DATETIME COMMENT '配信開始日時',
     created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '作成日時',
     updated DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新日時',
     deleted DATETIME COMMENT '削除日時',
