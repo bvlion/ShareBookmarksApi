@@ -9,5 +9,8 @@ object UsersModel {
     @JsonAlias("fcm_token") val fcmToken: String
   )
 
-  data class AuthResponse(@JsonProperty("access_token") val accessToken: String)
+  data class AuthResponse(
+    val premium: Boolean,
+    @JsonProperty("access_token") val accessToken: String
+  )
 }
