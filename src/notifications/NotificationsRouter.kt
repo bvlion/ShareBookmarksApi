@@ -1,7 +1,6 @@
 package net.ambitious.sharebookmarks.notifications
 
 import io.ktor.application.*
-import io.ktor.auth.*
 import io.ktor.locations.*
 import io.ktor.response.*
 import io.ktor.routing.*
@@ -13,17 +12,12 @@ import org.koin.ktor.ext.inject
 object NotificationsRouter {
   @KtorExperimentalAPI
   @KtorExperimentalLocationsAPI
-  fun Routing.notifications() {
+  fun Routing.notifications(key: AttributeKey<Int>) {
     val controller: NotificationsController by inject()
 
     route("/notifications") {
       get("/list") {
-        call.respond(transaction {
-          controller.getList(
-            call.request.parseAuthorizationHeader(),
-            application.environment
-          )
-        })
+        call.respond(transaction { controller.getList(call.attributes.getOrNull(key)) })
       }
     }
   }

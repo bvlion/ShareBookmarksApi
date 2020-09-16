@@ -3,8 +3,10 @@ package net.ambitious.sharebookmarks
 import com.fasterxml.jackson.databind.SerializationFeature
 import io.ktor.application.*
 import io.ktor.features.*
+import io.ktor.http.*
 import io.ktor.jackson.*
 import io.ktor.locations.*
+import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
@@ -27,10 +29,18 @@ fun Application.module() {
       enable(SerializationFeature.INDENT_OUTPUT)
     }
   }
-  routing {
-    index()
-    users()
-    notifications()
+  install(StatusPages) {
+    exception<IllegalStateException> { cause ->
+      log.warn("StatusPages Error", cause)
+      call.respond(HttpStatusCode.NotFound)
+    }
+  }
+  install(ProjectAuthentication) {
+    routing {
+      index()
+      users()
+      notifications(userIdKey)
+    }
   }
 
   Database.connect(
