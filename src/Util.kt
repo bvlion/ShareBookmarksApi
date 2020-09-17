@@ -63,4 +63,6 @@ object Util {
     environment.config.property("app.auth.audience").getString()
 
   fun datetimeFormat(time: Long?): String = DATETIME_FORMAT.print(time ?: DateTime(DATETIME_ZONE).millis)
+
+  fun datetimeParse(time: String): DateTime = DATETIME_FORMAT.parseDateTime(time)
 }

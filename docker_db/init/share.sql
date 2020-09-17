@@ -1,6 +1,7 @@
 CREATE TABLE share
 (
     id INT AUTO_INCREMENT NOT NULL COMMENT 'ID',
+    owner_user_id INT NOT NULL COMMENT '持ち主のユーザー ID',
     items_id INT NOT NULL COMMENT '対象フォルダ ID',
     share_user_id INT NOT NULL COMMENT '共有先のユーザー ID',
     owner_type INT NOT NULL COMMENT '編集権限可否',

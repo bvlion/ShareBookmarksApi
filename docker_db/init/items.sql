@@ -1,6 +1,7 @@
 CREATE TABLE items
 (
     id INT AUTO_INCREMENT NOT NULL COMMENT 'ID',
+    owner_user_id INT NOT NULL COMMENT '持ち主のユーザー ID',
     parent_id INT NOT NULL COMMENT '親の ID（なければ 0）',
     name VARCHAR(512) NOT NULL COMMENT '名称',
     url VARCHAR(512) COMMENT 'フォルダの場合は NULL',

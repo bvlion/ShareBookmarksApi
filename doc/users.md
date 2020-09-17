@@ -18,7 +18,7 @@ http://127.0.0.1:8080/users/auth
 
 ### response
 
-notifications 配下にリスト形式
+access_token を JSON で返す
 
 内容 | 値 | 説明
 :--|:--|:--
