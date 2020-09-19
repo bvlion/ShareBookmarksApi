@@ -118,7 +118,7 @@ remote_id | 1 | サーバー側の一意の ID
 delete_id | 1 | サーバー側の一意の ID
 
 ```
-http://127.0.0.1:8080/shares/delete-d '[
+http://127.0.0.1:8080/shares/delete -d '[
     {"delete_id": 1},
     {"delete_id": 2}
 ]'
