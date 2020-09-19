@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 object UsersModel {
   data class UserRequest(
     val email: String,
+    val uid: String,
     @JsonAlias("fcm_token") val fcmToken: String
   )
 

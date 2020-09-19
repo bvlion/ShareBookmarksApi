@@ -1,6 +1,7 @@
 CREATE TABLE users
 (
     id INT AUTO_INCREMENT NOT NULL COMMENT 'ID',
+    uid VARCHAR(256) COMMENT 'UID',
     email VARCHAR(512) NOT NULL COMMENT 'EMail',
     fcm_token VARCHAR(256) COMMENT '配信トークン',
     premium TINYINT(4) NOT NULL DEFAULT '0' COMMENT 'プラミアムフラグ',
