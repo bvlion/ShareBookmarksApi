@@ -26,3 +26,4 @@
 - [users](https://github.com/bvlion/ShareBookmarksApi/blob/master/doc/users.md)
 - [notifications](https://github.com/bvlion/ShareBookmarksApi/blob/master/doc/notifications.md)
 - [shares](https://github.com/bvlion/ShareBookmarksApi/blob/master/doc/shares.md)
+- [items](https://github.com/bvlion/ShareBookmarksApi/blob/master/doc/items.md)
