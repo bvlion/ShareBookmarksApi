@@ -36,8 +36,7 @@ object ItemsModel {
 
   data class PostParents(
     @JsonAlias("remote_id") val id: Int,
-    @JsonAlias("parent_id") val parentId: Int,
-    val updated: String
+    @JsonAlias("parent_id") val parentId: Int
   )
 
   data class ParentsSetResponse(@JsonProperty("result_count") val count: Int)

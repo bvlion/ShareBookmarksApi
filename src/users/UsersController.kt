@@ -11,7 +11,7 @@ class UsersController {
   @KtorExperimentalAPI
   fun auth(user: UsersModel.UserRequest, environment: ApplicationEnvironment): UsersModel.AuthResponse {
     // 共有で先にユーザー登録だけされていた方は UID を更新する
-    UsersEntity.find { (UsersDao.email eq user.email) and UsersDao.uid.isNull() }.first().let { dbUser ->
+    UsersEntity.find { (UsersDao.email eq user.email) and UsersDao.uid.isNull() }.firstOrNull()?.let { dbUser ->
       UsersDao.update({ UsersDao.id eq dbUser.id }) {
         it[uid] = user.uid
       }

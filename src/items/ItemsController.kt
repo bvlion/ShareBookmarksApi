@@ -40,7 +40,6 @@ class ItemsController {
     parents.map { item ->
       ItemsDao.update({ ItemsDao.id eq item.id }) {
         it[parentId] = item.parentId
-        it[updated] = Util.datetimeParse(item.updated)
       }
     }.size
   )
