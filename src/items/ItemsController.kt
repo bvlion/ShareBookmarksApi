@@ -36,10 +36,19 @@ class ItemsController {
     }
   )
 
-  fun setParentIds(parents: Array<ItemsModel.PostParents>) = ItemsModel.ParentsSetResponse(
+  fun setParentIds(parents: Array<ItemsModel.PostParents>, userId: Int) = ItemsModel.ParentsSetResponse(
     parents.map { item ->
-      ItemsDao.update({ ItemsDao.id eq item.id }) {
-        it[parentId] = item.parentId
+      // 所有者が自身ではない場合は shares を更新する
+      if (item.isShareFolder) {
+        SharesDao.update({
+          (SharesDao.shareUserId eq userId) and (SharesDao.itemsId eq item.id)
+        }) {
+          it[parentId] = item.parentId
+        }
+      } else {
+        ItemsDao.update({ ItemsDao.id eq item.id }) {
+          it[parentId] = item.parentId
+        }
       }
     }.size
   )

@@ -20,12 +20,10 @@ object ItemsRouter {
       }
 
       put("/parents") {
-        call.attributes[key].run {
-          call.receive<Array<ItemsModel.PostParents>>().let {
-            call.respond(transaction {
-              controller.setParentIds(it)
-            })
-          }
+        call.receive<Array<ItemsModel.PostParents>>().let {
+          call.respond(transaction {
+            controller.setParentIds(it, call.attributes[key])
+          })
         }
       }
 

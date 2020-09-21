@@ -120,11 +120,12 @@ remote_id | 1 | サーバー側の一意の ID
 :--|:--|:--
 remote_id | 1 | 対象ブックマーク ID
 parent_id | 1 | 親ブックマークの ID
+is_share_folder | true | 共有されているフォルダであれば true
 
 ```
 http://127.0.0.1:8080/items/parents -d '[
-    {"remote_id": 1, "parent_id", 2},
-    {"remote_id": 3, "parent_id", 0}
+    {"remote_id": 1, "parent_id", 2, false},
+    {"remote_id": 3, "parent_id", 0, true}
 ]'
 ```
 

@@ -36,7 +36,8 @@ object ItemsModel {
 
   data class PostParents(
     @JsonAlias("remote_id") val id: Int,
-    @JsonAlias("parent_id") val parentId: Int
+    @JsonAlias("parent_id") val parentId: Int,
+    @JsonAlias("is_share_folder") val isShareFolder: Boolean
   )
 
   data class ParentsSetResponse(@JsonProperty("result_count") val count: Int)
