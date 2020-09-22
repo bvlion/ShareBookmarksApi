@@ -15,6 +15,7 @@ object ItemsModel {
     @JsonProperty("name") val name: String,
     @JsonProperty("url") val url: String?,
     @JsonProperty("orders") val order: Int,
+    @JsonProperty("owner_type") val ownerType: Int,
     val updated: String
   )
 
@@ -47,13 +48,14 @@ object ItemsModel {
   data class DeleteResponse(@JsonProperty("delete_count") val count: Int)
 
   @KtorExperimentalAPI
-  fun entityToModel(entity: ResultRow, parentId: Int? = null) =
+  fun entityToModel(entity: ResultRow, ownerType: Int, parentId: Int? = null) =
     Item(
       entity[ItemsDao.id].value,
       parentId ?: entity[ItemsDao.parentId],
       entity[ItemsDao.name],
       entity[ItemsDao.url],
       entity[ItemsDao.orders],
+      ownerType,
       Util.datetimeFormat(entity[ItemsDao.updated].millis)
     )
 }
