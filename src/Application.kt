@@ -11,7 +11,8 @@ import io.ktor.routing.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import io.ktor.util.*
-import net.ambitious.sharebookmarks.index.IndexRouter.index
+import net.ambitious.sharebookmarks.etc.EtcRouter.etc
+import net.ambitious.sharebookmarks.etc.EtcRouter.index
 import net.ambitious.sharebookmarks.items.ItemsRouter.items
 import net.ambitious.sharebookmarks.notifications.NotificationsRouter.notifications
 import net.ambitious.sharebookmarks.shares.SharesRouter.shares
@@ -44,6 +45,7 @@ fun Application.module() {
       notifications(userIdKey)
       shares(userIdKey)
       items(userIdKey)
+      etc()
     }
   }
 
