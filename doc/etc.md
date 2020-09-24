@@ -19,7 +19,7 @@ notifications 配下にリスト形式
 
 内容 | 値 | 説明
 :--|:--|:--
-- | yyyy-MM-dd HH:mm:ss | 現在時刻
+\- | yyyy-MM-dd HH:mm:ss | 現在時刻
 
 ```
 2020-09-25 07:52:12
