@@ -1,40 +1,44 @@
 package net.ambitious.sharebookmarks.shares
 
 import io.ktor.application.*
+import io.ktor.auth.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.util.*
+import net.ambitious.sharebookmarks.Util
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.koin.ktor.ext.inject
 
 object SharesRouter {
   @KtorExperimentalAPI
-  fun Routing.shares(key: AttributeKey<Int>) {
+  fun Routing.shares() {
     val controller: SharesController by inject()
 
     route("/shares") {
-      get("/list") {
-        call.respond(transaction { controller.getShares(call.attributes[key]) })
-      }
-
-      post("/save") {
-        call.receive<Array<SharesModel.PostShare>>().let {
-          call.respond(transaction {
-            controller.saveShares(
-              call.attributes[key],
-              it
-            )
-          })
+      authenticate {
+        get("/list") {
+          call.respond(transaction { controller.getShares(call.principal<Util.AuthUser>()!!.id) })
         }
-      }
 
-      delete("/delete") {
-        call.attributes[key].run {
-          call.receive<Array<SharesModel.DeleteRequest>>().let {
+        post("/save") {
+          call.receive<Array<SharesModel.PostShare>>().let {
             call.respond(transaction {
-              controller.deleteShares(it)
+              controller.saveShares(
+                call.principal<Util.AuthUser>()!!.id,
+                it
+              )
             })
+          }
+        }
+
+        delete("/delete") {
+          call.principal<Util.AuthUser>()!!.run {
+            call.receive<Array<SharesModel.DeleteRequest>>().let {
+              call.respond(transaction {
+                controller.deleteShares(it)
+              })
+            }
           }
         }
       }

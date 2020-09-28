@@ -34,7 +34,7 @@ class UsersController {
               }
               dbUser.id
             }.value,
-            Util.getSecret(environment),
+            Util.getAlgorithm(environment),
             Util.getAudience(environment)
           )
         )

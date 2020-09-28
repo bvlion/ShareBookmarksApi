@@ -1,7 +1,10 @@
 package net.ambitious.sharebookmarks
 
+import com.auth0.jwt.JWT
 import com.fasterxml.jackson.databind.SerializationFeature
 import io.ktor.application.*
+import io.ktor.auth.*
+import io.ktor.auth.jwt.*
 import io.ktor.features.*
 import io.ktor.http.*
 import io.ktor.jackson.*
@@ -38,15 +41,33 @@ fun Application.module() {
       call.respond(HttpStatusCode.NotFound)
     }
   }
-  install(ProjectAuthentication) {
-    routing {
-      index()
-      users()
-      notifications(userIdKey)
-      shares(userIdKey)
-      items(userIdKey)
-      etc()
+  install(Authentication) {
+    jwt {
+      realm = javaClass.packageName
+      verifier(
+        JWT.require(Util.getAlgorithm(environment))
+          .withAudience(Util.getAudience(environment))
+          .withIssuer(Util.JWT_ISSUER)
+          .build()
+      )
+      validate {
+        it.payload.getClaim(Util.USER_ID_CLAIM).let { claim ->
+          if (!claim.isNull) {
+            Util.AuthUser(claim.asInt())
+          } else {
+            null
+          }
+        }
+      }
     }
+  }
+  routing {
+    index()
+    users()
+    notifications()
+    shares()
+    items()
+    etc()
   }
 
   Database.connect(

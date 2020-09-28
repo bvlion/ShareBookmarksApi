@@ -1,9 +1,9 @@
 package net.ambitious.sharebookmarks
 
-import io.jsonwebtoken.Jwts
-import io.jsonwebtoken.SignatureAlgorithm
+import com.auth0.jwt.JWT
+import com.auth0.jwt.algorithms.Algorithm
 import io.ktor.application.*
-import io.ktor.http.auth.*
+import io.ktor.auth.*
 import io.ktor.util.*
 import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
@@ -19,45 +19,23 @@ object Util {
   private val DATETIME_FORMAT = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss")
   val DATETIME_ZONE: DateTimeZone = DateTimeZone.forID(TIMEZONE)
 
-  fun auth(
-    httpAuthHeader: HttpAuthHeader?,
-    secret: String,
-    audience: String
-  ) = httpAuthHeader.let {
-    if (it != null &&
-      it.authScheme == "Bearer" &&
-      it is HttpAuthHeader.Single
-    ) {
-      try {
-        Jwts.parser().setSigningKey(secret).parseClaimsJws(it.blob)
-      } catch (ex: Exception) {
-        null
-      }?.let { jws ->
-        if (jws.body.audience == audience && jws.body.subject != null) {
-          jws.body.subject.toIntOrNull()
-        } else {
-          null
-        }
-      }
-    } else {
-      null
-    }
-  }
+  data class AuthUser(val id: Int): Principal
+  const val USER_ID_CLAIM = "user_id"
+  const val JWT_ISSUER = "bvlion"
 
   fun generateToken(
     id: Int,
-    secret: String,
+    algorithm: Algorithm,
     audience: String
-  ): String = Jwts.builder()
-    .setSubject(id.toString())
-    .setAudience(audience)
-    .setHeaderParam("typ", "JWT")
-    .setExpiration(Date.from(LocalDateTime.now().plusHours(1).atZone(ZoneId.of(TIMEZONE)).toInstant()))
-    .signWith(SignatureAlgorithm.HS256, secret)
-    .compact()
+  ): String = JWT.create()
+    .withAudience(audience)
+    .withExpiresAt(Date.from(LocalDateTime.now().plusHours(1).atZone(ZoneId.of(TIMEZONE)).toInstant()))
+    .withClaim(USER_ID_CLAIM, id)
+    .withIssuer(JWT_ISSUER)
+    .sign(algorithm)
 
-  fun getSecret(environment: ApplicationEnvironment) =
-    environment.config.property("app.auth.secret").getString()
+  fun getAlgorithm(environment: ApplicationEnvironment): Algorithm =
+    Algorithm.HMAC256(environment.config.property("app.auth.secret").getString())
 
   fun getAudience(environment: ApplicationEnvironment) =
     environment.config.property("app.auth.audience").getString()
