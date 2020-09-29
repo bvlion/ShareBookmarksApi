@@ -9,7 +9,7 @@ import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
 import org.joda.time.format.DateTimeFormat
 import java.time.LocalDateTime
-import java.time.ZoneId
+import java.time.ZoneOffset
 import java.util.*
 
 @KtorExperimentalAPI
@@ -29,7 +29,7 @@ object Util {
     audience: String
   ): String = JWT.create()
     .withAudience(audience)
-    .withExpiresAt(Date.from(LocalDateTime.now().plusHours(1).atZone(ZoneId.of(TIMEZONE)).toInstant()))
+    .withExpiresAt(Date.from(LocalDateTime.now().plusHours(1).toInstant(ZoneOffset.UTC)))
     .withClaim(USER_ID_CLAIM, id)
     .withIssuer(JWT_ISSUER)
     .sign(algorithm)
