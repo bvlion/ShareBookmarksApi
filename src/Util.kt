@@ -8,9 +8,12 @@ import io.ktor.util.*
 import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
 import org.joda.time.format.DateTimeFormat
+import org.jsoup.Jsoup
+import java.net.URL
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.util.*
+import javax.net.ssl.HttpsURLConnection
 
 @KtorExperimentalAPI
 object Util {
@@ -43,4 +46,30 @@ object Util {
   fun datetimeFormat(time: Long?): String = DATETIME_FORMAT.print(time ?: DateTime(DATETIME_ZONE).millis)
 
   fun datetimeParse(time: String): DateTime = DATETIME_FORMAT.parseDateTime(time)
+
+  fun getOgpImage(url: String) = try {
+    Jsoup.connect(url).get().select("meta[property~=og:image]")
+      .map { it.attr("content") }.let { ogImage ->
+        if (ogImage.isEmpty()) {
+          null
+        } else {
+          if (isHttpStatusOk(ogImage.first())) {
+            ogImage.first()
+          } else {
+            null
+          }
+        }
+      }
+  } catch (e: Exception) {
+    null
+  }
+
+  private fun isHttpStatusOk(url: String) = try {
+    val con = (URL(url).openConnection() as HttpsURLConnection).apply { requestMethod = "GET" }
+    con.connect()
+    con.responseCode == HttpsURLConnection.HTTP_OK
+  } catch (_: Exception) {
+    false
+  }
+
 }
