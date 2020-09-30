@@ -8,7 +8,6 @@ import io.ktor.auth.jwt.*
 import io.ktor.features.*
 import io.ktor.http.*
 import io.ktor.jackson.*
-import io.ktor.locations.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.engine.*
@@ -23,7 +22,6 @@ import net.ambitious.sharebookmarks.users.UsersRouter.users
 import org.koin.ktor.ext.Koin
 import org.jetbrains.exposed.sql.Database
 
-@KtorExperimentalLocationsAPI
 @KtorExperimentalAPI
 @Suppress("unused")
 fun Application.module() {

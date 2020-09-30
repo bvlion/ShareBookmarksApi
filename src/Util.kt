@@ -15,7 +15,6 @@ import java.time.ZoneOffset
 import java.util.*
 import javax.net.ssl.HttpsURLConnection
 
-@KtorExperimentalAPI
 object Util {
 
   private const val TIMEZONE = "Asia/Tokyo"
@@ -37,9 +36,11 @@ object Util {
     .withIssuer(JWT_ISSUER)
     .sign(algorithm)
 
+  @KtorExperimentalAPI
   fun getAlgorithm(environment: ApplicationEnvironment): Algorithm =
     Algorithm.HMAC256(environment.config.property("app.auth.secret").getString())
 
+  @KtorExperimentalAPI
   fun getAudience(environment: ApplicationEnvironment) =
     environment.config.property("app.auth.audience").getString()
 

@@ -5,13 +5,11 @@ import io.ktor.auth.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
-import io.ktor.util.*
 import net.ambitious.sharebookmarks.Util
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.koin.ktor.ext.inject
 
 object ItemsRouter {
-  @KtorExperimentalAPI
   fun Routing.items() {
     val controller: ItemsController by inject()
 

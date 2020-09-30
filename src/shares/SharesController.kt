@@ -1,6 +1,5 @@
 package net.ambitious.sharebookmarks.shares
 
-import io.ktor.util.*
 import net.ambitious.sharebookmarks.Util
 import net.ambitious.sharebookmarks.users.UsersDao
 import net.ambitious.sharebookmarks.users.UsersEntity
@@ -8,7 +7,6 @@ import org.jetbrains.exposed.dao.EntityID
 import org.jetbrains.exposed.sql.*
 import org.joda.time.DateTime
 
-@KtorExperimentalAPI
 class SharesController {
 
   fun saveShares(userId: Int, shares: Array<SharesModel.PostShare>) = SharesModel.PostResponseList(

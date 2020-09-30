@@ -2,7 +2,6 @@ package net.ambitious.sharebookmarks.items
 
 import com.fasterxml.jackson.annotation.JsonAlias
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.ktor.util.*
 import net.ambitious.sharebookmarks.Util
 import org.jetbrains.exposed.sql.ResultRow
 
@@ -47,7 +46,6 @@ object ItemsModel {
 
   data class DeleteResponse(@JsonProperty("delete_count") val count: Int)
 
-  @KtorExperimentalAPI
   fun entityToModel(entity: ResultRow, ownerType: Int, parentId: Int? = null) =
     Item(
       entity[ItemsDao.id].value,

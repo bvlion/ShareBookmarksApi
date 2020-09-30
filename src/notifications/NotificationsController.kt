@@ -1,6 +1,5 @@
 package net.ambitious.sharebookmarks.notifications
 
-import io.ktor.util.*
 import net.ambitious.sharebookmarks.Util
 import net.ambitious.sharebookmarks.users.UsersEntity
 import org.jetbrains.exposed.sql.SortOrder
@@ -9,7 +8,6 @@ import org.jetbrains.exposed.sql.or
 import org.joda.time.DateTime
 
 class NotificationsController {
-  @KtorExperimentalAPI
   fun getList(userId: Int?) = NotificationsModel.entityToModel(
     NotificationsEntity.find {
       (NotificationsDao.targetPremium.eq(0) or
