@@ -1,13 +1,11 @@
 package net.ambitious.sharebookmarks.items
 
-import io.ktor.util.*
 import net.ambitious.sharebookmarks.Util
 import net.ambitious.sharebookmarks.shares.SharesDao
 import org.jetbrains.exposed.dao.EntityID
 import org.jetbrains.exposed.sql.*
 import org.joda.time.DateTime
 
-@KtorExperimentalAPI
 class ItemsController {
   fun saveItems(userId: Int, items: Array<ItemsModel.PostItem>) = ItemsModel.PostResponseList(
     items.map { item ->
@@ -37,29 +35,49 @@ class ItemsController {
   )
 
   fun setParentIds(parents: Array<ItemsModel.PostParents>, userId: Int): ItemsModel.ParentsSetResponse {
-      val count = parents.map { item ->
+    // 親フォルダと id の Map
+    val idMap = mutableMapOf<Int, ArrayList<Int>>()
+    var count = 0
+
+    parents.forEach { item ->
       // 所有者が自身ではない場合は shares を更新する
       if (item.isShareFolder) {
-        SharesDao.update({
+        count += SharesDao.update({
           (SharesDao.shareUserId eq userId) and (SharesDao.itemsId eq item.id)
         }) {
           it[parentId] = item.parentId
         }
       } else {
-        ItemsDao.update({ ItemsDao.id eq item.id }) {
-          it[parentId] = item.parentId
+        if (idMap.contains(item.parentId)) {
+          idMap[item.parentId]!!.add(item.id)
+        } else {
+          idMap[item.parentId] = arrayListOf(item.id)
         }
       }
-    }.size
+    }
+
+    idMap.forEach { ids ->
+      count += ItemsDao.update({ ItemsDao.id inList ids.value }) {
+        it[parentId] = ids.key
+      }
+    }
+    idMap.clear()
 
     // 全アイテムの所有者情報を親フォルダの owner で上書きする
     ItemsDao
       .select { ItemsDao.url.isNull() }
-      .forEach { result ->
-        ItemsDao.update({ ItemsDao.parentId eq result[ItemsDao.id].value }) {
-          it[ownerUserId] = result[ownerUserId]
+      .forEach {
+        if (idMap.contains(it[ItemsDao.ownerUserId])) {
+          idMap[it[ItemsDao.ownerUserId]]!!.add(it[ItemsDao.id].value)
+        } else {
+          idMap[it[ItemsDao.ownerUserId]] = arrayListOf(it[ItemsDao.id].value)
         }
       }
+    idMap.forEach { ids ->
+      count += ItemsDao.update({ ItemsDao.parentId inList ids.value }) {
+        it[ownerUserId] = ids.key
+      }
+    }
 
     return ItemsModel.ParentsSetResponse(count)
   }
