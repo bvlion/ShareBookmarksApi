@@ -9,6 +9,7 @@
 内容 | 値 | 説明
 :--|:--|:--
 email | test@example.com | ユーザの Email
+uid | test3r2trnmthjtyjr | Google から発行される HASH 値
 fcm_token | test | 端末が払い出す token
 
 ```
