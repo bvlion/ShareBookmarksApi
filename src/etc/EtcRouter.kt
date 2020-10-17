@@ -31,7 +31,10 @@ object EtcRouter {
       get("/ogp") {
         call.respond(controller.getHttpOgpImage(call.request.queryParameters["url"]))
       }
+
+      get("/{lang}/faq") {
+        call.respond(transaction { controller.faq(call.parameters["lang"]) })
+      }
     }
   }
-  data class OgpGet(val url: String?)
 }

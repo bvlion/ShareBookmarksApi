@@ -80,3 +80,65 @@ message | このアプリケーション上で提供するサ... | プライバ�
     "message" : "このアプリケーション上で提供するサ... "
 }
 ```
+
+## get /etc/{lang}/faq
+
+よくある質問を取得
+
+### request
+
+内容 | 値 | 説明
+:--|:--|:--
+lang | ja | 取得言語
+
+```
+http://127.0.0.1:8080/etc/ja/faq
+```
+
+### response
+
+faq 配下にリスト形式
+
+内容 | 値 | 説明
+:--|:--|:--
+question | 画像が表示されません... | 質問内容
+answer | 画像は各サイトのシェア用画像を取得しています... | 回答
+
+```
+{
+  "faq" : [
+    {
+      "question" : "画像が表示されません。",
+      "answer" : "画像は各サイトのシェア用画像を取得しています。<br>対象のサイトがシェア画像を設定していない場合は画像は表示されません。"
+    }
+  ]
+}
+```
+
+## get /etc/ogp
+
+OGP 画像 URL を取得
+
+### request
+
+内容 | 値 | 説明
+:--|:--|:--
+lang | url | 対象サイトの URL
+
+```
+http://localhost:8080/etc/ogp?url=https://www.ambitious-i.net/
+```
+
+### response
+
+json 形式
+
+内容 | 値 | 説明
+:--|:--|:--
+url | https://www.ambitious-i.net/img/main.jpg | 取得できない場合、および http の場合は null
+
+```
+{
+  "url" : "https://www.ambitious-i.net/img/main.jpg"
+}
+```
