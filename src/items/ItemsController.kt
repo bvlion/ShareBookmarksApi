@@ -104,27 +104,27 @@ class ItemsController {
       }
     )
 
-    private fun getItemsFromFolderId(list: ArrayList<ItemsModel.Item>, folderId: Int, ownerType: Int, parentId: Int) {
-      // フォルダ自身を追加
-      val folders = ItemsDao
-        .select { (ItemsDao.id eq folderId) and ItemsDao.deleted.isNull() }
-        .map { ItemsModel.entityToModel(it, ownerType, parentId) }
-      if (folders.isEmpty()) {
-        return
-      }
-      list.addAll(folders)
-
-      // 紐づくブックマークを取得
-      ItemsDao
-        .select { (ItemsDao.parentId eq folderId) and ItemsDao.deleted.isNull() }
-        .map { ItemsModel.entityToModel(it, ownerType) }
-        .forEach {
-          // フォルダであれば再起的に取得する
-          if (it.url.isNullOrEmpty()) {
-            getItemsFromFolderId(list, it.id, ownerType, it.parentId)
-          } else {
-            list.add(it)
-          }
-        }
+  private fun getItemsFromFolderId(list: ArrayList<ItemsModel.Item>, folderId: Int, ownerType: Int, parentId: Int) {
+    // フォルダ自身を追加
+    val folders = ItemsDao
+      .select { (ItemsDao.id eq folderId) and ItemsDao.deleted.isNull() }
+      .map { ItemsModel.entityToModel(it, ownerType, parentId) }
+    if (folders.isEmpty()) {
+      return
     }
+    list.addAll(folders)
+
+    // 紐づくブックマークを取得
+    ItemsDao
+      .select { (ItemsDao.parentId eq folderId) and ItemsDao.deleted.isNull() }
+      .map { ItemsModel.entityToModel(it, ownerType) }
+      .forEach {
+        // フォルダであれば再起的に取得する
+        if (it.url.isNullOrEmpty()) {
+          getItemsFromFolderId(list, it.id, ownerType, it.parentId)
+        } else {
+          list.add(it)
+        }
+      }
+  }
 }
