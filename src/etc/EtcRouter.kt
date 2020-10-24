@@ -3,15 +3,15 @@ package net.ambitious.sharebookmarks.etc
 import io.ktor.application.*
 import io.ktor.response.*
 import io.ktor.routing.*
-import net.ambitious.sharebookmarks.Util
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.koin.ktor.ext.inject
 
 object EtcRouter {
   fun Routing.index() {
+    val controller: EtcController by inject()
     route("/") {
       get {
-        call.respond(Util.datetimeFormat(null))
+        call.respond(transaction { controller.getTime() })
       }
     }
   }
