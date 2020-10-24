@@ -1,4 +1,3 @@
-※ 書き途中
 # ShareBookmarksApi
 
 [ShareBookmarks](https://github.com/bvlion/ShareBookmarks) 用 API 
@@ -7,7 +6,6 @@
 
 - [Ktor](https://ktor.io/)
 - [Exposed](https://github.com/JetBrains/Exposed/wiki/DSL)
-- [jjwt](https://github.com/jwtk/jjwt)
 
 ## 環境構築
 
@@ -23,8 +21,8 @@
 
 ## EndPoint
 
-- [users](https://github.com/bvlion/ShareBookmarksApi/blob/master/doc/users.md)
-- [notifications](https://github.com/bvlion/ShareBookmarksApi/blob/master/doc/notifications.md)
-- [shares](https://github.com/bvlion/ShareBookmarksApi/blob/master/doc/shares.md)
-- [items](https://github.com/bvlion/ShareBookmarksApi/blob/master/doc/items.md)
-- [etc](https://github.com/bvlion/ShareBookmarksApi/blob/master/doc/etc.md)
+- [users](/doc/users.md)
+- [notifications](/doc/notifications.md)
+- [shares](/doc/shares.md)
+- [items](/doc/items.md)
+- [etc](/doc/etc.md)
