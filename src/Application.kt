@@ -49,12 +49,16 @@ fun Application.module() {
           .build()
       )
       validate {
-        it.payload.getClaim(Util.USER_ID_CLAIM).let { claim ->
-          if (!claim.isNull) {
-            Util.AuthUser(claim.asInt())
-          } else {
-            null
+        if (it.payload.audience.contains(Util.getAudience(environment))) {
+          it.payload.getClaim(Util.USER_ID_CLAIM).let { claim ->
+            if (!claim.isNull) {
+              Util.AuthUser(claim.asInt())
+            } else {
+              null
+            }
           }
+        } else {
+          null
         }
       }
     }

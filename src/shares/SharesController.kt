@@ -1,5 +1,6 @@
 package net.ambitious.sharebookmarks.shares
 
+import io.ktor.util.*
 import net.ambitious.sharebookmarks.Util
 import net.ambitious.sharebookmarks.users.UsersDao
 import net.ambitious.sharebookmarks.users.UsersEntity
@@ -52,6 +53,7 @@ class SharesController {
     }
   )
 
+  @KtorExperimentalAPI
   fun getShares(userId: Int) = SharesModel.GetList(
       SharesDao.join(UsersDao, JoinType.INNER, additionalConstraint = { SharesDao.shareUserId eq UsersDao.id })
         .slice(SharesDao.id, SharesDao.itemsId, UsersDao.email, SharesDao.ownerType, SharesDao.updated)
