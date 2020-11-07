@@ -10,5 +10,5 @@ object ItemsDao : IntIdTable("items") {
   val orders = integer("orders")
   val created = datetime("created")
   val updated = datetime("updated")
-  val deleted = datetime("deleted")
+  val deleted = datetime("deleted").nullable()
 }

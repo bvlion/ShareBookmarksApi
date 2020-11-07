@@ -16,7 +16,9 @@ object ItemsRouter {
     route("/items") {
       authenticate {
         get("/list") {
-          call.respond(transaction { controller.getItems(call.principal<Util.AuthUser>()!!.id) })
+          call.respond(transaction {
+            controller.getItems(call.principal<Util.AuthUser>()!!.id, call.request.queryParameters["latest"])
+          })
         }
 
         put("/parents") {

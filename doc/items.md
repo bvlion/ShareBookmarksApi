@@ -9,9 +9,10 @@
 内容 | 値 | 説明
 :--|:--|:--
 Authorization | Bearer | ヘッダに設定
+latest | yyyy-MM-dd HH:mm:ss | 対象日時以降を取得
 
 ```
-http://127.0.0.1:8080/items/list
+http://127.0.0.1:8080/items/list?latest=2020-09-11 13:44:22
 ```
 
 ### response
@@ -21,30 +22,36 @@ items 配下にリスト形式
 内容 | 値 | 説明
 :--|:--|:--
 remote_id | 1 | サーバー側の一意の ID
-parent_id | 1 | サーバー側の親としている item ID
+remote_parent_id | 1 | サーバー側の親としている item ID
 name | example | 名称
 url | https://example.com | URL（フォルダの場合は NULL）
 orders | 1 | 編集権限
+owner_type | 0 | オーナータイプ
 updated | yyyy-MM-dd HH:mm:ss | 更新日時
+deleted | false | 削除フラグ
 
 ```
 {
     "items": [
         {
-            "remote_id": 1,
-            "parent_id": 1,
-            "name": "example",
+            "remote_id": 9,
+            "remote_parent_id": 2,
+            "name": "example 1",
             "url": "https://example.com",
-            "orders": 1,
-            "updated": "2020-09-16 13:44:22"
+            "orders": 2,
+            "owner_type": 1,
+            "updated": "2020-11-07 15:48:17",
+            "deleted": false
         },
         {
-            "remote_id": 2,
-            "parent_id": 1,
-            "name": "example folder",
-            "url": null,
-            "orders": 2,
-            "updated": "2020-09-16 13:44:22"
+            "remote_id": 129,
+            "remote_parent_id": 8,
+            "name": "example 2",
+            "url": "https://example.com",
+            "orders": 37,
+            "owner_type": 1,
+            "updated": "2020-11-07 15:50:59",
+            "deleted": true
         }
     ]
 }

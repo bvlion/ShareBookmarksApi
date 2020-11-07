@@ -20,6 +20,7 @@ object Util {
   private const val TIMEZONE = "Asia/Tokyo"
   private val DATETIME_FORMAT = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss")
   val DATETIME_ZONE: DateTimeZone = DateTimeZone.forID(TIMEZONE)
+  const val LAST_UPDATE_DEFAULT = "2020-01-01 00:00:00"
 
   data class AuthUser(val id: Int): Principal
   const val USER_ID_CLAIM = "user_id"

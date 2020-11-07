@@ -10,12 +10,13 @@ object ItemsModel {
 
   data class Item(
     @JsonProperty("remote_id") val id: Int,
-    @JsonProperty("parent_id") val parentId: Int,
+    @JsonProperty("remote_parent_id") val parentId: Int,
     @JsonProperty("name") val name: String,
     @JsonProperty("url") val url: String?,
     @JsonProperty("orders") val order: Int,
     @JsonProperty("owner_type") val ownerType: Int,
-    val updated: String
+    val updated: String,
+    val deleted: Boolean
   )
 
   data class PostItem(
@@ -54,6 +55,7 @@ object ItemsModel {
       entity[ItemsDao.url],
       entity[ItemsDao.orders],
       ownerType,
-      Util.datetimeFormat(entity[ItemsDao.updated].millis)
+      Util.datetimeFormat(entity[ItemsDao.updated].millis),
+      entity[ItemsDao.deleted] != null
     )
 }
