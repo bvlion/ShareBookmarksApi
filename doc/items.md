@@ -9,7 +9,7 @@
 内容 | 値 | 説明
 :--|:--|:--
 Authorization | Bearer | ヘッダに設定
-latest | yyyy-MM-dd HH:mm:ss | 対象日時以降を取得
+latest | yyyy-MM-dd HH:mm:ss | 対象日時以降を取得（設定されていない場合は全件取得）
 
 ```
 http://127.0.0.1:8080/items/list?latest=2020-09-11 13:44:22
