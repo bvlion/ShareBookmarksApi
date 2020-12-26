@@ -14,9 +14,12 @@ object NotificationsRouter {
     val controller: NotificationsController by inject()
 
     route("/notifications") {
+      get("/list") {
+        call.respond(transaction { controller.getList(null) })
+      }
       authenticate {
-        get("/list") {
-          call.respond(transaction { controller.getList(call.principal<Util.AuthUser>()?.id) })
+        get("/auth/list") {
+          call.respond(transaction { controller.getList(call.principal<Util.AuthUser>()!!.id) })
         }
       }
     }

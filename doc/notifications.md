@@ -1,8 +1,10 @@
 # お知らせ API
 
 ## get /notifications/list
+## get /notifications/auth/list
 
-「お知らせ」に表示する内容を取得
+「お知らせ」に表示する内容を取得  
+認証済みの場合は auth の方を利用する
 
 ### request
 
