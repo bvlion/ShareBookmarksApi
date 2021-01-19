@@ -10,9 +10,6 @@ import org.joda.time.DateTimeZone
 import org.joda.time.format.DateTimeFormat
 import org.jsoup.Jsoup
 import java.net.URL
-import java.time.LocalDateTime
-import java.time.ZoneOffset
-import java.util.*
 import javax.net.ssl.HttpsURLConnection
 
 object Util {
@@ -23,18 +20,17 @@ object Util {
   const val LAST_UPDATE_DEFAULT = "2020-01-01 00:00:00"
 
   data class AuthUser(val id: Int): Principal
-  const val USER_ID_CLAIM = "user_id"
   const val JWT_ISSUER = "bvlion"
 
   fun generateToken(
-    id: Int,
+    hash: String,
     algorithm: Algorithm,
     audience: String
   ): String = JWT.create()
     .withAudience(audience)
-    .withExpiresAt(Date.from(LocalDateTime.now().plusHours(1).toInstant(ZoneOffset.UTC)))
-    .withClaim(USER_ID_CLAIM, id)
     .withIssuer(JWT_ISSUER)
+    .withIssuedAt(DateTime(DATETIME_ZONE).toDate())
+    .withSubject(hash)
     .sign(algorithm)
 
   @KtorExperimentalAPI

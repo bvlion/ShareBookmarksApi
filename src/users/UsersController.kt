@@ -6,6 +6,7 @@ import net.ambitious.sharebookmarks.Util
 import org.jetbrains.exposed.sql.and
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.update
+import java.util.*
 
 class UsersController {
   @KtorExperimentalAPI
@@ -19,25 +20,30 @@ class UsersController {
 
     return UsersEntity.find { (UsersDao.uid eq user.uid) and (UsersDao.email eq user.email) }.firstOrNull()
       .let { dbUser ->
-        UsersModel.AuthResponse(
-          dbUser?.premium == 1,
-          Util.generateToken(
-            if (dbUser == null) {
-              UsersDao.insert {
-                it[email] = user.email
-                it[uid] = user.uid
-                it[fcmToken] = user.fcmToken
-              } get UsersDao.id
-            } else {
-              UsersDao.update({ UsersDao.id eq dbUser.id }) {
-                it[fcmToken] = user.fcmToken
-              }
-              dbUser.id
-            }.value,
-            Util.getAlgorithm(environment),
-            Util.getAudience(environment)
+        UUID.randomUUID().toString().let { uuid ->
+          if (dbUser == null) {
+            UsersDao.insert {
+              it[email] = user.email
+              it[uid] = user.uid
+              it[fcmToken] = user.fcmToken
+              it[hash] = uuid
+            } get UsersDao.id
+          } else {
+            UsersDao.update({ UsersDao.id eq dbUser.id }) {
+              it[fcmToken] = user.fcmToken
+              it[hash] = uuid
+            }
+            dbUser.id
+          }
+          UsersModel.AuthResponse(
+            dbUser?.premium == 1,
+            Util.generateToken(
+              uuid,
+              Util.getAlgorithm(environment),
+              Util.getAudience(environment)
+            )
           )
-        )
+        }
       }
   }
 }

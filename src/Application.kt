@@ -18,9 +18,12 @@ import net.ambitious.sharebookmarks.etc.EtcRouter.index
 import net.ambitious.sharebookmarks.items.ItemsRouter.items
 import net.ambitious.sharebookmarks.notifications.NotificationsRouter.notifications
 import net.ambitious.sharebookmarks.shares.SharesRouter.shares
+import net.ambitious.sharebookmarks.users.UsersDao
+import net.ambitious.sharebookmarks.users.UsersEntity
 import net.ambitious.sharebookmarks.users.UsersRouter.users
 import org.koin.ktor.ext.Koin
 import org.jetbrains.exposed.sql.Database
+import org.jetbrains.exposed.sql.transactions.transaction
 
 @KtorExperimentalAPI
 @Suppress("unused")
@@ -49,16 +52,12 @@ fun Application.module() {
           .build()
       )
       validate {
-        if (it.payload.audience.contains(Util.getAudience(environment))) {
-          it.payload.getClaim(Util.USER_ID_CLAIM).let { claim ->
-            if (!claim.isNull) {
-              Util.AuthUser(claim.asInt())
-            } else {
-              null
+        it.payload.subject?.let { hash ->
+          transaction {
+            UsersEntity.find { UsersDao.hash eq hash}.firstOrNull()?.let { db ->
+              Util.AuthUser(db.id.value)
             }
           }
-        } else {
-          null
         }
       }
     }
