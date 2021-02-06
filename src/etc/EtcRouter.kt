@@ -9,6 +9,13 @@ import org.koin.ktor.ext.inject
 object EtcRouter {
   fun Routing.index() {
     val controller: EtcController by inject()
+
+    route("/test") {
+      get {
+        call.respond(controller.getTimeOnly())
+      }
+    }
+
     route("/") {
       get {
         call.respond(transaction { controller.getTime() })

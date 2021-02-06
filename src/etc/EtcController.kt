@@ -39,5 +39,7 @@ class EtcController {
     EtcDao.Faq.select { EtcDao.Faq.id eq 1 }
   }
 
+  fun getTimeOnly() = Util.datetimeFormat(null)
+
   data class OgpGet(val url: String?)
 }
