@@ -1,0 +1,36 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'cron-*'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: Set Up GCP Auth
+      uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      with:
+        project_id: ${{ secrets.GCP_PROJECT_ID }}
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+        export_default_credentials: true
+
+    - name: cron setUp
+      run: gcloud app deploy yaml/cron.yaml
+
+    - name: Slack Notification Success
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
+        SLACK_COLOR: good
+        SLACK_ICON: ${{ secrets.SLACK_ICON_URL }}
+        SLACK_MESSAGE: 'Post cron :rocket:'
+        SLACK_TITLE: cron setUp Success
+        SLACK_USERNAME: GitHub Actions
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}

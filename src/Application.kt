@@ -33,7 +33,9 @@ fun Application.module() {
   }
   install(ContentNegotiation) {
     jackson {
-      enable(SerializationFeature.INDENT_OUTPUT)
+      if (environment.config.property("app.pretty_print").getString() == "true") {
+        enable(SerializationFeature.INDENT_OUTPUT)
+      }
     }
   }
   install(StatusPages) {

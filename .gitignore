@@ -6,3 +6,5 @@
 *.ipr
 *.iws
 log/mysql/mysqld.log
+.DS_Store
+secret.yaml
