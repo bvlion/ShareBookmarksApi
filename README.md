@@ -34,5 +34,5 @@
 
 ## テスト
 
-master にプッシュすると GitHub Actions によって 無料サーバーにアップされる  
-[テスト結果](http://shrbookmarks.html.xdomain.jp)
+master にプッシュすると GitHub Actions によって GitHub Pages にアップされる  
+[テスト結果](https://bvlion.github.io/ShareBookmarksApi/index.html)

@@ -36,25 +36,25 @@ jobs:
     - name: Docker stop
       run: docker-compose stop
 
-    - name: Test Report
-      uses: JamesIves/github-pages-deploy-action@4.0.0
-      with:
-        branch: gh-pages
-        folder: build/reports/tests/test
-
     - name: Heroku Deploy
       uses: akhileshns/heroku-deploy@v3.10.9
       with:
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
         heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
         heroku_email: ${{ secrets.HEROKU_USER_EMAIL }}
-        remote_branch: master
+        remote_branch: main
+
+    - name: Test Report
+      uses: JamesIves/github-pages-deploy-action@4.0.0
+      with:
+        branch: gh-pages
+        folder: build/reports/tests/test
 
     - name: Slack Notification
       uses: 8398a7/action-slack@v3
       with:
         status: ${{ job.status }}
-        fields: repo,message,action,took,ref
+        fields: repo,message,action,took
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       if: failure()
