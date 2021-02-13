@@ -16,3 +16,19 @@ services:
       - ./docker_db/init:/docker-entrypoint-initdb.d
       - ./docker_db/conf:/etc/mysql
       - ./log/mysql:/var/log/mysql
+
+  test-db:
+    build: ./docker_db
+    image: mariadb:10.3
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+      MYSQL_DATABASE: bookmarks
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3337:3306"
+    volumes:
+      - ./docker_db/init:/docker-entrypoint-initdb.d
+      - ./docker_db/conf:/etc/mysql

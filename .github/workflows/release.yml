@@ -44,15 +44,13 @@ jobs:
         sed -i -e "s/project_id/${{ secrets.GCP_PROJECT_ID }}/g" ext.gradle
 
     - name: appengineDeploy
-      run: ./gradlew clean appengineDeploy
+      run: ./gradlew clean test appengineDeploy
 
     - name: Slack Notification
       uses: 8398a7/action-slack@v3
       with:
         status: ${{ job.status }}
-        fields: repo,message,commit,author,action,job,took,eventName,ref,workflow
-        icon_url: '${{ secrets.SLACK_ICON_URL }}'
-        channel: '${{ secrets.SLACK_CHANNEL }}'
+        fields: repo,message,action,took,ref
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       if: always()

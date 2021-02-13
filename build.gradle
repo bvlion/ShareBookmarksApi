@@ -59,6 +59,7 @@ dependencies {
     implementation "com.google.cloud.sql:mysql-socket-factory:1.2.0"
 
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
+    testImplementation "io.mockk:mockk:1.10.5"
 }
 
 kotlin.experimental.coroutines = 'enable'

@@ -16,8 +16,13 @@
 
 ### 実行
 
-- `docker-compose up -d` でローカル DB 起動
+- `docker-compose up -d db` でローカル DB 起動
 - `gradle -> application -> run`
+
+### テスト
+
+- `docker-compose up -d test-db` でローカル DB 起動
+- `gradle -> verification -> test`
 
 ## EndPoint
 
@@ -26,3 +31,8 @@
 - [shares](/doc/shares.md)
 - [items](/doc/items.md)
 - [etc](/doc/etc.md)
+
+## テスト
+
+master にプッシュすると GitHub Actions によって 無料サーバーにアップされる  
+[テスト結果](http://shrbookmarks.html.xdomain.jp)

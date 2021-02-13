@@ -24,12 +24,10 @@ jobs:
     - name: cron setUp
       run: gcloud app deploy yaml/cron.yaml
 
-    - name: Slack Notification Success
+    - name: Slack Notification
       uses: rtCamp/action-slack-notify@v2
       env:
-        SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
         SLACK_COLOR: good
-        SLACK_ICON: ${{ secrets.SLACK_ICON_URL }}
         SLACK_MESSAGE: 'Post cron :rocket:'
         SLACK_TITLE: cron setUp Success
         SLACK_USERNAME: GitHub Actions
