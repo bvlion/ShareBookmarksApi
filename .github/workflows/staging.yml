@@ -42,7 +42,7 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: build/reports/tests/test
+        local-dir: build/reports/tests/test/
         dangerous-clean-slate: true
 
     - name: Heroku Deploy
