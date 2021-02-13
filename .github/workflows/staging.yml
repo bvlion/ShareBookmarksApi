@@ -39,12 +39,11 @@ jobs:
     - name: Test Report FTP
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       env:
-        FTP_SERVER: ${{ secrets.FTP_SERVER }}
-        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        LOCAL_DIR: build/reports/tests/test
-        REMOTE_DIR: /
-        ARGS: --delete
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: build/reports/tests/test
+        dangerous-clean-slate: true
 
     - name: Heroku Deploy
       uses: akhileshns/heroku-deploy@v3.10.9
