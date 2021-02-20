@@ -34,5 +34,4 @@
 
 ## テスト
 
-master にプッシュすると GitHub Actions によって GitHub Pages にアップされる  
-[テスト結果](https://bvlion.github.io/ShareBookmarksApi/index.html)
+master にプッシュすると GitHub Actions によって[ GitHub Pages](https://bvlion.github.io/ShareBookmarksApi/index.html) にテスト結果がアップされる  

@@ -44,7 +44,7 @@ jobs:
         sed -i -e "s/project_id/${{ secrets.GCP_PROJECT_ID }}/g" ext.gradle
 
     - name: appengineDeploy
-      run: ./gradlew clean test appengineDeploy
+      run: ./gradlew clean appengineDeploy
 
     - name: Slack Notification
       uses: 8398a7/action-slack@v3
