@@ -1,12 +1,9 @@
 package etc
 
+import JsonObject
 import TestBase
 import io.ktor.http.*
 import io.ktor.server.testing.*
-import net.ambitious.sharebookmarks.etc.EtcDao
-import org.jetbrains.exposed.sql.transactions.transaction
-import org.jetbrains.exposed.sql.update
-import org.json.simple.JSONObject
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -31,24 +28,37 @@ class EtcTest : TestBase() {
   }
 
   @Test
-  fun jaFaq() {
-    transaction {
-      EtcDao.Faq.update({ EtcDao.Faq.id eq 1 }) {
-        it[answer] = "answer"
-        it[question] = "question"
-      }
-    }
+  fun ogp() {
     with(engine) {
-      handleRequest(HttpMethod.Get, "/etc/ja/faq").response.apply {
+      // 取得できるパターン
+      handleRequest(HttpMethod.Get, "/etc/ogp?url=https://www.ambitious-i.net").response.apply {
+        assertEquals(HttpStatusCode.OK, status())
         assertEquals(
-          JSONObject(
-            mapOf("faq" to listOf(
-              mapOf("answer" to "answer", "question" to "question")
-            ))
-          ).toJSONString(),
+          JsonObject(
+            mapOf("url" to "https://www.ambitious-i.net/img/main.jpg")
+          ).toString(),
           content
         )
+      }
+      // 取得できないパターン
+      handleRequest(HttpMethod.Get, "/etc/ogp?url=https://example.com").response.apply {
         assertEquals(HttpStatusCode.OK, status())
+        assertEquals(
+          JsonObject(
+            mapOf("url" to null)
+          ).toString(),
+          content
+        )
+      }
+      // URL が http
+      handleRequest(HttpMethod.Get, "/etc/ogp?url=http://vigor.tokyo").response.apply {
+        assertEquals(HttpStatusCode.OK, status())
+        assertEquals(
+          JsonObject(
+            mapOf("url" to null)
+          ).toString(),
+          content
+        )
       }
     }
   }

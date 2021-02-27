@@ -1,7 +1,9 @@
 version: '3.3'
 services:
   db:
-    build: ./docker_db
+    build:
+      context: ./docker_db
+      dockerfile: ./develop/Dockerfile
     image: mariadb:10.3
     restart: always
     environment:
@@ -13,12 +15,11 @@ services:
     ports:
       - "3336:3306"
     volumes:
-      - ./docker_db/init:/docker-entrypoint-initdb.d
       - ./docker_db/conf:/etc/mysql
       - ./log/mysql:/var/log/mysql
 
   test-db:
-    build: ./docker_db
+    build: ./docker_db/test
     image: mariadb:10.3
     restart: always
     environment:
