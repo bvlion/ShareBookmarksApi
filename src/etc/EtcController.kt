@@ -6,8 +6,8 @@ import org.jetbrains.exposed.sql.and
 import org.jetbrains.exposed.sql.select
 
 class EtcController {
-  fun message(lang: String?, type: Int) = EtcDao.Term.select {
-    (EtcDao.Term.lang eq (lang ?: "ja")) and (EtcDao.Term.type eq type)
+  fun message(id: Int) = EtcDao.Term.select {
+    EtcDao.Term.id eq id
   }.map { mapOf(Pair("message", it[EtcDao.Term.message])) }.first()
 
   fun getHttpOgpImage(url: String?) = OgpGet(

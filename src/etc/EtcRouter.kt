@@ -27,12 +27,12 @@ object EtcRouter {
     val controller: EtcController by inject()
     route("/etc") {
 
-      get("/{lang}/terms_of_use") {
-        call.respond(transaction { controller.message(call.parameters["lang"], 1) })
+      get("/terms_of_use") {
+        call.respond(transaction { controller.message(1) })
       }
 
-      get("/{lang}/privacy_policy") {
-        call.respond(transaction { controller.message(call.parameters["lang"], 2) })
+      get("/privacy_policy") {
+        call.respond(transaction { controller.message(2) })
       }
 
       get("/ogp") {

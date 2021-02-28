@@ -4,8 +4,6 @@ import org.jetbrains.exposed.dao.IntIdTable
 
 object EtcDao {
   object Term: IntIdTable("term") {
-    val type = integer("type")
-    val lang = text("lang")
     val message = text("message")
   }
 
