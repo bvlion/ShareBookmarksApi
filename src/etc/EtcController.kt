@@ -35,8 +35,8 @@ class EtcController {
         })
   )
 
-  fun getTime() = Util.datetimeFormat(null).apply {
-    EtcDao.Faq.select { EtcDao.Faq.id eq 1 }
+  fun getTime() = EtcDao.Faq.select { EtcDao.Faq.id eq 1 }.count().let {
+    Util.datetimeFormat(null)
   }
 
   fun getTimeOnly() = Util.datetimeFormat(null)

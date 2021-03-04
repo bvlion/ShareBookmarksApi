@@ -1,6 +1,7 @@
 package net.ambitious.sharebookmarks.etc
 
 import io.ktor.application.*
+import io.ktor.http.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -28,10 +29,12 @@ object EtcRouter {
     route("/etc") {
 
       get("/terms_of_use") {
+        call.response.headers.append(HttpHeaders.AccessControlAllowOrigin, "*")
         call.respond(transaction { controller.message(1) })
       }
 
       get("/privacy_policy") {
+        call.response.headers.append(HttpHeaders.AccessControlAllowOrigin, "*")
         call.respond(transaction { controller.message(2) })
       }
 
