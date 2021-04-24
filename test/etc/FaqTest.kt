@@ -16,7 +16,7 @@ class FaqTest : TestBase() {
   fun jaFaq() {
     faqTestBefore()
     with(engine) {
-      handleRequest(HttpMethod.Get, "/etc/ja/faq").response.apply {
+      handleRequest(HttpMethod.Get, "/etc/ja/faq").response.run {
         Assert.assertEquals(
           JsonObject(
             mapOf(
@@ -38,7 +38,7 @@ class FaqTest : TestBase() {
   fun enFaq() {
     faqTestBefore()
     with(engine) {
-      handleRequest(HttpMethod.Get, "/etc/en/faq").response.apply {
+      handleRequest(HttpMethod.Get, "/etc/en/faq").response.run {
         Assert.assertEquals(
           JsonObject(
             mapOf(

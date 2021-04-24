@@ -12,7 +12,7 @@ class EtcTest : TestBase() {
   @Test
   fun indexOnly() {
     with(engine) {
-      handleRequest(HttpMethod.Get, "/test").response.apply {
+      handleRequest(HttpMethod.Get, "/test").response.run {
         assertEquals(HttpStatusCode.OK, status())
       }
     }
@@ -21,7 +21,7 @@ class EtcTest : TestBase() {
   @Test
   fun index() {
     with(engine) {
-      handleRequest(HttpMethod.Get, "/").response.apply {
+      handleRequest(HttpMethod.Get, "/").response.run {
         assertEquals(HttpStatusCode.OK, status())
       }
     }
@@ -31,7 +31,7 @@ class EtcTest : TestBase() {
   fun ogp() {
     with(engine) {
       // 取得できるパターン
-      handleRequest(HttpMethod.Get, "/etc/ogp?url=https://www.ambitious-i.net").response.apply {
+      handleRequest(HttpMethod.Get, "/etc/ogp?url=https://www.ambitious-i.net").response.run {
         assertEquals(HttpStatusCode.OK, status())
         assertEquals(
           JsonObject(
@@ -41,7 +41,7 @@ class EtcTest : TestBase() {
         )
       }
       // 取得できないパターン
-      handleRequest(HttpMethod.Get, "/etc/ogp?url=https://example.com").response.apply {
+      handleRequest(HttpMethod.Get, "/etc/ogp?url=https://example.com").response.run {
         assertEquals(HttpStatusCode.OK, status())
         assertEquals(
           JsonObject(
@@ -51,7 +51,7 @@ class EtcTest : TestBase() {
         )
       }
       // URL が http
-      handleRequest(HttpMethod.Get, "/etc/ogp?url=http://vigor.tokyo").response.apply {
+      handleRequest(HttpMethod.Get, "/etc/ogp?url=http://vigor.tokyo").response.run {
         assertEquals(HttpStatusCode.OK, status())
         assertEquals(
           JsonObject(
