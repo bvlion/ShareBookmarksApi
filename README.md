@@ -16,7 +16,7 @@
 
 ### 実行
 
-- `docker-compose up -d db` でローカル DB 起動
+- `docker-compose up --build -d db` でローカル DB 起動
 - `gradle -> application -> run`
 
 ### テスト

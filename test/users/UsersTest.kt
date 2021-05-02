@@ -13,14 +13,20 @@ import org.junit.Assert
 import org.junit.Test
 
 class UsersTest : TestBase() {
+  /** POST しただけではエラーになる */
   @Test
-  fun userAuth() {
+  fun userAuthFailed() {
     with(engine) {
-      // 単に POST しただけ
       handleRequest(HttpMethod.Post, "/users/auth").response.run {
         Assert.assertEquals(HttpStatusCode.UnsupportedMediaType, status())
       }
+    }
+  }
 
+  /** 登録と更新 */
+  @Test
+  fun userCreateUpdate() {
+    with(engine) {
       // 登録する
       handleRequest(HttpMethod.Post, "/users/auth") {
         addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
