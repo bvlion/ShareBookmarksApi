@@ -1,1 +1,1 @@
-web: java -jar target/sharebookmarks.jar
+web: java -jar build/libs/sharebookmarks-1.0.0.jar
