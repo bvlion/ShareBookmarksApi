@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">3.160s</div>
+<div class="counter">3.221s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,17 +79,17 @@
 </thead>
 <tr>
 <td class="success">index</td>
-<td class="success">0.040s</td>
+<td class="success">0.030s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">indexOnly</td>
-<td class="success">0.037s</td>
+<td class="success">0.040s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">ogp</td>
-<td class="success">3.083s</td>
+<td class="success">3.151s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -97,20 +97,20 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2021-05-02 02:16:40.869 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
-2021-05-02 02:16:40.887 [DefaultDispatcher-worker-3 @request#17] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2021-05-02 02:16:40.890 [DefaultDispatcher-worker-3 @request#17] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2021-05-02 02:16:40.891 [DefaultDispatcher-worker-3 @request#17] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@user', 'test_user', 'test_user', 'aa7f2c9d-3ec9-4db8-ae54-5d1ab9fb2654')
-2021-05-02 02:16:40.904 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
-2021-05-02 02:16:40.914 [DefaultDispatcher-worker-1 @request#25] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2021-05-02 02:16:40.915 [DefaultDispatcher-worker-1 @request#25] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2021-05-02 02:16:40.918 [DefaultDispatcher-worker-1 @request#25] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='0d8a1d8a-8fc7-46b4-af6a-6b1fb7151e74' WHERE users.id = 2
-2021-05-02 02:16:43.988 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
-2021-05-02 02:16:43.999 [DefaultDispatcher-worker-4 @request#41] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2021-05-02 02:16:44.001 [DefaultDispatcher-worker-4 @request#41] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2021-05-02 02:16:44.003 [DefaultDispatcher-worker-4 @request#41] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='7b18f9dc-9dc8-4767-90f4-53aba1a4eeba' WHERE users.id = 2
-2021-05-02 02:16:44.022 [DefaultDispatcher-worker-4 @request#45] DEBUG Exposed - SELECT COUNT(*) FROM faq WHERE faq.id = 1
-2021-05-02 02:16:44.031 [Test worker] DEBUG Exposed - DELETE FROM users
+<pre>2021-05-03 07:51:55.679 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
+2021-05-03 07:51:55.700 [DefaultDispatcher-worker-3 @request#17] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2021-05-03 07:51:55.701 [DefaultDispatcher-worker-3 @request#17] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2021-05-03 07:51:55.702 [DefaultDispatcher-worker-3 @request#17] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@user', 'test_user', 'test_user', '393832dd-5b4b-4584-8c23-84228a7206d2')
+2021-05-03 07:51:55.720 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
+2021-05-03 07:51:55.733 [DefaultDispatcher-worker-3 @request#25] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2021-05-03 07:51:55.735 [DefaultDispatcher-worker-3 @request#25] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2021-05-03 07:51:55.736 [DefaultDispatcher-worker-3 @request#25] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='6ae53a1a-c614-4ae9-a4e0-1aa8328859a6' WHERE users.id = 2
+2021-05-03 07:51:58.870 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
+2021-05-03 07:51:58.882 [DefaultDispatcher-worker-1 @request#41] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2021-05-03 07:51:58.883 [DefaultDispatcher-worker-1 @request#41] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2021-05-03 07:51:58.886 [DefaultDispatcher-worker-1 @request#41] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='7fdc617c-4d1b-446c-8436-ee878fe46f30' WHERE users.id = 2
+2021-05-03 07:51:58.898 [DefaultDispatcher-worker-3 @request#45] DEBUG Exposed - SELECT COUNT(*) FROM faq WHERE faq.id = 1
+2021-05-03 07:51:58.904 [Test worker] DEBUG Exposed - DELETE FROM users
 </pre>
 </span>
 </div>
@@ -122,7 +122,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.6.2</a> at May 2, 2021, 2:16:44 AM</p>
+<a href="http://www.gradle.org">Gradle 5.6.2</a> at May 3, 2021, 7:51:59 AM</p>
 </div>
 </div>
 </body>
