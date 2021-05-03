@@ -42,6 +42,7 @@ jobs:
       run: |
         mkdir target
         mv build/libs/sharebookmarks-1.0.0.jar target/sharebookmarks.jar
+        heroku plugins:install java
         heroku deploy:jar target/sharebookmarks.jar -a ${{ secrets.HEROKU_APP_NAME }}
 
     - name: Test Report
