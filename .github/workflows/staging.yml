@@ -31,18 +31,18 @@ jobs:
       run: docker-compose up -d test-db
 
     - name: build
-      run: ./gradlew clean test
+      run: ./gradlew clean test stage
 
     - name: Docker stop
       run: docker-compose stop
 
     - name: Heroku Deploy
-      uses: akhileshns/heroku-deploy@v3.10.9
-      with:
-        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-        heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-        heroku_email: ${{ secrets.HEROKU_USER_EMAIL }}
-        remote_branch: main
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      run: |
+        mkdir target
+        mv build/libs/sharebookmarks-1.0.0.jar target/sharebookmarks.jar
+        heroku deploy:jar target/sharebookmarks.jar -a ${{ secrets.HEROKU_APP_NAME }}
 
     - name: Test Report
       uses: JamesIves/github-pages-deploy-action@4.0.0
