@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.122s</div>
+<div class="counter">0.084s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,12 +79,12 @@
 </thead>
 <tr>
 <td class="success">privacyPolicy</td>
-<td class="success">0.066s</td>
+<td class="success">0.039s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">termOfUse</td>
-<td class="success">0.056s</td>
+<td class="success">0.045s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -92,21 +92,25 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2021-05-03 08:39:19.990 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
-2021-05-03 08:39:20.015 [DefaultDispatcher-worker-4 @request#49] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2021-05-03 08:39:20.017 [DefaultDispatcher-worker-4 @request#49] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2021-05-03 08:39:20.018 [DefaultDispatcher-worker-4 @request#49] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@user', 'test_user', 'test_user', '2bc83d20-1ec2-48d0-ae8b-5d264e2283e9')
-2021-05-03 08:39:20.031 [Test worker] DEBUG Exposed - INSERT INTO term (id, message) VALUES (2, 'privacy_policy')
-2021-05-03 08:39:20.042 [DefaultDispatcher-worker-4 @request#53] DEBUG Exposed - SELECT term.id, term.message FROM term WHERE term.id = 2
-2021-05-03 08:39:20.051 [Test worker] DEBUG Exposed - DELETE FROM term
-2021-05-03 08:39:20.057 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
-2021-05-03 08:39:20.072 [DefaultDispatcher-worker-4 @request#57] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2021-05-03 08:39:20.077 [DefaultDispatcher-worker-4 @request#57] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2021-05-03 08:39:20.079 [DefaultDispatcher-worker-4 @request#57] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='c86ef263-31cc-41a9-a149-978345624eb6' WHERE users.id = 3
-2021-05-03 08:39:20.092 [Test worker] DEBUG Exposed - INSERT INTO term (id, message) VALUES (1, 'terms_of_use')
-2021-05-03 08:39:20.103 [DefaultDispatcher-worker-1 @request#61] DEBUG Exposed - SELECT term.id, term.message FROM term WHERE term.id = 1
-2021-05-03 08:39:20.109 [Test worker] DEBUG Exposed - DELETE FROM term
-2021-05-03 08:39:20.117 [Test worker] DEBUG Exposed - DELETE FROM users
+<pre>2021-05-04 16:27:08.953 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
+2021-05-04 16:27:08.955 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
+2021-05-04 16:27:08.964 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
+2021-05-04 16:27:08.969 [DefaultDispatcher-worker-2 @request#49] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2021-05-04 16:27:08.970 [DefaultDispatcher-worker-2 @request#49] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2021-05-04 16:27:08.975 [DefaultDispatcher-worker-2 @request#49] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@user', 'test_user', 'test_user', '2d0a511f-7cb9-4758-ae07-da8f34279c8e')
+2021-05-04 16:27:08.983 [Test worker] DEBUG Exposed - INSERT INTO term (id, message) VALUES (2, 'privacy_policy')
+2021-05-04 16:27:08.986 [DefaultDispatcher-worker-2 @request#53] DEBUG Exposed - SELECT term.id, term.message FROM term WHERE term.id = 2
+2021-05-04 16:27:08.990 [Test worker] DEBUG Exposed - DELETE FROM term
+2021-05-04 16:27:08.992 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
+2021-05-04 16:27:08.994 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
+2021-05-04 16:27:09.003 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
+2021-05-04 16:27:09.009 [DefaultDispatcher-worker-2 @request#57] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2021-05-04 16:27:09.010 [DefaultDispatcher-worker-2 @request#57] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2021-05-04 16:27:09.011 [DefaultDispatcher-worker-2 @request#57] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='61e6822d-215c-40f7-953d-58ae3cf9a526' WHERE users.id = 3
+2021-05-04 16:27:09.023 [Test worker] DEBUG Exposed - INSERT INTO term (id, message) VALUES (1, 'terms_of_use')
+2021-05-04 16:27:09.030 [DefaultDispatcher-worker-2 @request#61] DEBUG Exposed - SELECT term.id, term.message FROM term WHERE term.id = 1
+2021-05-04 16:27:09.035 [Test worker] DEBUG Exposed - DELETE FROM term
+2021-05-04 16:27:09.038 [Test worker] DEBUG Exposed - DELETE FROM users
 </pre>
 </span>
 </div>
@@ -118,7 +122,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.6.2</a> at May 3, 2021, 8:39:20 AM</p>
+<a href="http://www.gradle.org">Gradle 5.6.2</a> at May 4, 2021, 4:27:09 PM</p>
 </div>
 </div>
 </body>

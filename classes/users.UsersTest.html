@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.141s</div>
+<div class="counter">0.151s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,12 +79,12 @@
 </thead>
 <tr>
 <td class="success">userAuthFailed</td>
-<td class="success">0.068s</td>
+<td class="success">0.062s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">userCreateUpdate</td>
-<td class="success">0.073s</td>
+<td class="success">0.089s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -92,23 +92,27 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2021-05-03 08:39:20.123 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
-2021-05-03 08:39:20.137 [DefaultDispatcher-worker-1 @request#65] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2021-05-03 08:39:20.138 [DefaultDispatcher-worker-1 @request#65] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2021-05-03 08:39:20.150 [DefaultDispatcher-worker-1 @request#65] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@user', 'test_user', 'test_user', '210e549f-9d73-4e29-a253-5b5fa5aa8961')
-2021-05-03 08:39:20.191 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
-2021-05-03 08:39:20.209 [DefaultDispatcher-worker-1 @request#71] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2021-05-03 08:39:20.210 [DefaultDispatcher-worker-1 @request#71] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2021-05-03 08:39:20.211 [DefaultDispatcher-worker-1 @request#71] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='c6557aee-11da-4f7f-895c-ce81d1439cff' WHERE users.id = 4
-2021-05-03 08:39:20.226 [DefaultDispatcher-worker-1 @request#75] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@example.com' AND users.uid IS NULL
-2021-05-03 08:39:20.229 [DefaultDispatcher-worker-1 @request#75] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test3r2test_test' AND users.email = 'test@example.com'
-2021-05-03 08:39:20.230 [DefaultDispatcher-worker-1 @request#75] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@example.com', 'test', 'test3r2test_test', '106e0f2f-709a-4c16-bfea-cb2f0033e0ba')
-2021-05-03 08:39:20.241 [Test worker] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@example.com'
-2021-05-03 08:39:20.248 [DefaultDispatcher-worker-1 @request#79] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@example.com' AND users.uid IS NULL
-2021-05-03 08:39:20.249 [DefaultDispatcher-worker-1 @request#79] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test3r2test_test' AND users.email = 'test@example.com'
-2021-05-03 08:39:20.250 [DefaultDispatcher-worker-1 @request#79] DEBUG Exposed - UPDATE users SET fcm_token='test2', user_hash='b5aabcaf-d9fb-49c8-85b6-85d211c2a22b' WHERE users.id = 5
-2021-05-03 08:39:20.262 [Test worker] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@example.com'
-2021-05-03 08:39:20.267 [Test worker] DEBUG Exposed - DELETE FROM users
+<pre>2021-05-04 16:27:09.040 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
+2021-05-04 16:27:09.041 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
+2021-05-04 16:27:09.050 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
+2021-05-04 16:27:09.056 [DefaultDispatcher-worker-2 @request#65] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2021-05-04 16:27:09.058 [DefaultDispatcher-worker-2 @request#65] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2021-05-04 16:27:09.060 [DefaultDispatcher-worker-2 @request#65] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@user', 'test_user', 'test_user', 'e9cea7da-e9eb-445c-8848-7d021d8678e0')
+2021-05-04 16:27:09.104 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
+2021-05-04 16:27:09.105 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
+2021-05-04 16:27:09.131 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
+2021-05-04 16:27:09.143 [DefaultDispatcher-worker-2 @request#71] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2021-05-04 16:27:09.147 [DefaultDispatcher-worker-2 @request#71] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2021-05-04 16:27:09.151 [DefaultDispatcher-worker-2 @request#71] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='fcd35873-c7b6-4b89-8417-a953fd0ec5b8' WHERE users.id = 4
+2021-05-04 16:27:09.168 [DefaultDispatcher-worker-4 @request#75] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@example.com' AND users.uid IS NULL
+2021-05-04 16:27:09.169 [DefaultDispatcher-worker-4 @request#75] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test3r2test_test' AND users.email = 'test@example.com'
+2021-05-04 16:27:09.171 [DefaultDispatcher-worker-4 @request#75] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@example.com', 'test', 'test3r2test_test', '2694a05b-8b34-4464-ac41-60b78135c6f4')
+2021-05-04 16:27:09.179 [Test worker] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@example.com'
+2021-05-04 16:27:09.181 [DefaultDispatcher-worker-4 @request#79] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@example.com' AND users.uid IS NULL
+2021-05-04 16:27:09.183 [DefaultDispatcher-worker-4 @request#79] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test3r2test_test' AND users.email = 'test@example.com'
+2021-05-04 16:27:09.184 [DefaultDispatcher-worker-4 @request#79] DEBUG Exposed - UPDATE users SET fcm_token='test2', user_hash='df3c5374-04cc-4223-918c-de7bece5ba7a' WHERE users.id = 5
+2021-05-04 16:27:09.189 [Test worker] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@example.com'
+2021-05-04 16:27:09.191 [Test worker] DEBUG Exposed - DELETE FROM users
 </pre>
 </span>
 </div>
@@ -120,7 +124,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.6.2</a> at May 3, 2021, 8:39:20 AM</p>
+<a href="http://www.gradle.org">Gradle 5.6.2</a> at May 4, 2021, 4:27:09 PM</p>
 </div>
 </div>
 </body>
