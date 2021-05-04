@@ -36,7 +36,6 @@ jobs:
 
     - name: Setup secrets
       run: |
-        echo "${{ secrets.VPC_ACCESS_CONNECTOR }}" | base64 -d >> app.yaml
         echo "${{ secrets.SECRET_YAML }}" | base64 -d > secret.yaml
 
         VERSION=$(echo ${{ github.ref }} | sed -e "s#refs/tags/##g" | sed -e 's/\./-/g')

@@ -2,6 +2,8 @@ package net.ambitious.sharebookmarks
 
 import com.auth0.jwt.JWT
 import com.fasterxml.jackson.databind.SerializationFeature
+import com.zaxxer.hikari.HikariConfig
+import com.zaxxer.hikari.HikariDataSource
 import io.ktor.application.*
 import io.ktor.auth.*
 import io.ktor.auth.jwt.*
@@ -73,12 +75,28 @@ fun Application.module() {
     etc()
   }
 
-  Database.connect(
-    url = environment.config.property("app.database.url").getString(),
-    user = environment.config.property("app.database.user").getString(),
-    password = environment.config.property("app.database.password").getString(),
-    driver = "com.mysql.jdbc.Driver"
-  )
+  Database.connect(HikariDataSource(
+    HikariConfig().apply {
+      driverClassName = "com.mysql.jdbc.Driver"
+      jdbcUrl = environment.config.property("app.database.url").getString()
+      username = environment.config.property("app.database.user").getString()
+      password = environment.config.property("app.database.password").getString()
+      connectionTestQuery = "SELECT 1"
+      minimumIdle = 5
+      maximumPoolSize = 10
+      poolName = "ConnectionPool"
+      leakDetectionThreshold = 5000
+      isAutoCommit = false
+
+      val cloudSqlInstance = environment.config.property("app.database.cloud_sql_instance").getString()
+      if (cloudSqlInstance.isNotEmpty()) {
+        addDataSourceProperty("socketFactory", "com.google.cloud.sql.mysql.SocketFactory")
+        addDataSourceProperty("cloudSqlInstance", cloudSqlInstance)
+      }
+      addDataSourceProperty("useSSL", "false")
+      validate()
+    }
+  ))
 }
 
 fun main(args: Array<String>) {

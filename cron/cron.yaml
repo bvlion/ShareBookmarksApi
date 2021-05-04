@@ -1,6 +1,6 @@
 cron:
   - description: "インスタンス定期監視"
     target: default
-    url: /
+    url: /test
     schedule: every 5 mins
     timezone: Asia/Tokyo

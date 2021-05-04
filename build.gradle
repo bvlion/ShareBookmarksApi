@@ -57,6 +57,7 @@ dependencies {
     implementation "mysql:mysql-connector-java:$mysql_connector_version"
     implementation "org.jsoup:jsoup:1.13.1"
     implementation "com.google.cloud.sql:mysql-socket-factory:1.2.0"
+    implementation "com.zaxxer:HikariCP:4.0.3"
 
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
     testImplementation "io.mockk:mockk:1.10.5"
