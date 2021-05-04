@@ -20,9 +20,10 @@ open class TestBase {
   fun setUp() {
     engine = TestApplicationEngine(applicationEngineEnvironment {
       config = MapApplicationConfig(
-        "app.database.url" to "jdbc:mysql://127.0.0.1:3337/bookmarks?useSSL=false",
+        "app.database.url" to "jdbc:mysql://127.0.0.1:3337/bookmarks",
         "app.database.user" to "user",
         "app.database.password" to "password",
+        "app.database.cloud_sql_instance" to "",
         "app.auth.audience" to "sharebookmarks",
         "app.auth.secret" to "sharebookmarks",
         "app.pretty_print" to "false"
