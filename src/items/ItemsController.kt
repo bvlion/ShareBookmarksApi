@@ -98,7 +98,14 @@ class ItemsController {
       ).apply {
         val list = arrayListOf<ItemsModel.Item>()
         SharesDao.select { SharesDao.shareUserId eq userId }.forEach {
-          getItemsFromFolderId(list, it[SharesDao.itemsId], it[SharesDao.ownerType], it[SharesDao.parentId])
+          getItemsFromFolderId(
+            list,
+            it[SharesDao.itemsId],
+            it[SharesDao.ownerType],
+            it[SharesDao.parentId],
+            it[SharesDao.updated],
+            it[SharesDao.deleted] != null
+          )
         }
         addAll(list)
       }.filter {
@@ -106,11 +113,18 @@ class ItemsController {
       }
     )
 
-  private fun getItemsFromFolderId(list: ArrayList<ItemsModel.Item>, folderId: Int, ownerType: Int, parentId: Int) {
+  private fun getItemsFromFolderId(
+    list: ArrayList<ItemsModel.Item>,
+    folderId: Int,
+    ownerType: Int,
+    parentId: Int,
+    updated: DateTime,
+    deleted: Boolean
+  ) {
     // フォルダ自身を追加
     val folders = ItemsDao
       .select { ItemsDao.id eq folderId }
-      .map { ItemsModel.entityToModel(it, ownerType, parentId) }
+      .map { ItemsModel.entityToModel(it, ownerType, parentId, updated, deleted) }
     if (folders.isEmpty()) {
       return
     }
@@ -120,11 +134,11 @@ class ItemsController {
     // 紐づくブックマークを取得
     ItemsDao
       .select { ItemsDao.parentId eq folderId }
-      .map { ItemsModel.entityToModel(it, ownerType) }
+      .map { ItemsModel.entityToModel(it, ownerType, updated = updated, deleted = deleted) }
       .forEach {
         // フォルダであれば再起的に取得する
         if (it.url.isNullOrEmpty()) {
-          getItemsFromFolderId(list, it.id, ownerType, it.parentId)
+          getItemsFromFolderId(list, it.id, ownerType, it.parentId, updated, deleted)
         } else {
           list.add(it)
         }

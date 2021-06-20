@@ -10,5 +10,5 @@ object SharesDao : IntIdTable("share") {
   val parentId = integer("parent_id")
   val created = datetime("created")
   val updated = datetime("updated")
-  val deleted = datetime("deleted")
+  val deleted = datetime("deleted").nullable()
 }

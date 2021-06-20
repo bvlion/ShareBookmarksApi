@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAlias
 import com.fasterxml.jackson.annotation.JsonProperty
 import net.ambitious.sharebookmarks.Util
 import org.jetbrains.exposed.sql.ResultRow
+import org.joda.time.DateTime
 
 object ItemsModel {
   data class GetList(val items: List<Item>)
@@ -47,15 +48,24 @@ object ItemsModel {
 
   data class DeleteResponse(@JsonProperty("delete_count") val count: Int)
 
-  fun entityToModel(entity: ResultRow, ownerType: Int, parentId: Int? = null) =
-    Item(
-      entity[ItemsDao.id].value,
-      parentId ?: entity[ItemsDao.parentId],
-      entity[ItemsDao.name],
-      entity[ItemsDao.url],
-      entity[ItemsDao.orders],
-      ownerType,
-      Util.datetimeFormat(entity[ItemsDao.updated].millis),
-      entity[ItemsDao.deleted] != null
-    )
+  fun entityToModel(
+    entity: ResultRow,
+    ownerType: Int,
+    parentId: Int? = null,
+    updated: DateTime? = null,
+    deleted: Boolean = false
+  ) = Item(
+    entity[ItemsDao.id].value,
+    parentId ?: entity[ItemsDao.parentId],
+    entity[ItemsDao.name],
+    entity[ItemsDao.url],
+    entity[ItemsDao.orders],
+    ownerType,
+    if (updated != null && updated.isAfter(entity[ItemsDao.updated])) {
+      Util.datetimeFormat(updated.millis)
+    } else {
+      Util.datetimeFormat(entity[ItemsDao.updated].millis)
+    },
+    if (deleted) true else entity[ItemsDao.deleted] != null
+  )
 }
