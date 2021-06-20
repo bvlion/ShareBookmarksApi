@@ -97,7 +97,15 @@ class ItemsController {
           .map { ItemsModel.entityToModel(it, 0) }
       ).apply {
         val list = arrayListOf<ItemsModel.Item>()
-        SharesDao.select { SharesDao.shareUserId eq userId }.forEach {
+        val idAlias = SharesDao.id.max().alias("id")
+        // 同じフォルダを再共有すると削除と混同するため最新のみとする
+        val maxIdList = SharesDao.slice(idAlias)
+          .select { SharesDao.shareUserId eq userId }
+          .groupBy(SharesDao.itemsId)
+          .map { it[idAlias]!!.value }
+          .toList()
+        SharesDao.select { (SharesDao.shareUserId eq userId) and SharesDao.id.inList(maxIdList) }
+          .forEach {
           getItemsFromFolderId(
             list,
             it[SharesDao.itemsId],
