@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.163s</div>
+<div class="counter">0.106s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,12 +79,12 @@
 </thead>
 <tr>
 <td class="success">enFaq</td>
-<td class="success">0.068s</td>
+<td class="success">0.063s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">jaFaq</td>
-<td class="success">0.095s</td>
+<td class="success">0.043s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -92,31 +92,31 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2021-10-10 07:36:09.261 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
-2021-10-10 07:36:09.264 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
-2021-10-10 07:36:09.276 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
-2021-10-10 07:36:09.289 [DefaultDispatcher-worker-1 @request#49] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2021-10-10 07:36:09.295 [DefaultDispatcher-worker-1 @request#49] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2021-10-10 07:36:09.297 [DefaultDispatcher-worker-1 @request#49] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@user', 'test_user', 'test_user', 'fe87d1dd-c988-4479-8edc-43a115502942')
-2021-10-10 07:36:09.306 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_ja_1', 'ja', 'question_ja_1')
-2021-10-10 07:36:09.308 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_en_1', 'en', 'question_en_1')
-2021-10-10 07:36:09.309 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_ja_2', 'ja', 'question_ja_2')
-2021-10-10 07:36:09.311 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_en_2', 'en', 'question_en_2')
-2021-10-10 07:36:09.316 [DefaultDispatcher-worker-2 @request#53] DEBUG Exposed - SELECT faq.id, faq.lang, faq.question, faq.answer, faq.deleted FROM faq WHERE faq.lang = 'en' AND faq.deleted = false ORDER BY faq.id DESC
-2021-10-10 07:36:09.324 [Test worker] DEBUG Exposed - DELETE FROM faq
-2021-10-10 07:36:09.348 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
-2021-10-10 07:36:09.355 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
-2021-10-10 07:36:09.374 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
-2021-10-10 07:36:09.392 [DefaultDispatcher-worker-2 @request#57] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2021-10-10 07:36:09.394 [DefaultDispatcher-worker-2 @request#57] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2021-10-10 07:36:09.396 [DefaultDispatcher-worker-2 @request#57] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='0fda8112-4588-4df2-af29-4f7abde95f1b' WHERE users.id = 3
-2021-10-10 07:36:09.409 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_ja_1', 'ja', 'question_ja_1')
-2021-10-10 07:36:09.410 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_en_1', 'en', 'question_en_1')
-2021-10-10 07:36:09.411 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_ja_2', 'ja', 'question_ja_2')
-2021-10-10 07:36:09.412 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_en_2', 'en', 'question_en_2')
-2021-10-10 07:36:09.416 [DefaultDispatcher-worker-2 @request#61] DEBUG Exposed - SELECT faq.id, faq.lang, faq.question, faq.answer, faq.deleted FROM faq WHERE faq.lang = 'ja' AND faq.deleted = false ORDER BY faq.id DESC
-2021-10-10 07:36:09.423 [Test worker] DEBUG Exposed - DELETE FROM faq
-2021-10-10 07:36:09.425 [Test worker] DEBUG Exposed - DELETE FROM users
+<pre>2021-10-10 07:38:25.400 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
+2021-10-10 07:38:25.402 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
+2021-10-10 07:38:25.419 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
+2021-10-10 07:38:25.429 [DefaultDispatcher-worker-4 @request#49] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2021-10-10 07:38:25.432 [DefaultDispatcher-worker-4 @request#49] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2021-10-10 07:38:25.434 [DefaultDispatcher-worker-4 @request#49] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@user', 'test_user', 'test_user', '7469d911-4ee7-469d-8d0b-c423df66a648')
+2021-10-10 07:38:25.443 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_ja_1', 'ja', 'question_ja_1')
+2021-10-10 07:38:25.445 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_en_1', 'en', 'question_en_1')
+2021-10-10 07:38:25.446 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_ja_2', 'ja', 'question_ja_2')
+2021-10-10 07:38:25.447 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_en_2', 'en', 'question_en_2')
+2021-10-10 07:38:25.452 [DefaultDispatcher-worker-4 @request#53] DEBUG Exposed - SELECT faq.id, faq.lang, faq.question, faq.answer, faq.deleted FROM faq WHERE faq.lang = 'en' AND faq.deleted = false ORDER BY faq.id DESC
+2021-10-10 07:38:25.459 [Test worker] DEBUG Exposed - DELETE FROM faq
+2021-10-10 07:38:25.464 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
+2021-10-10 07:38:25.465 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
+2021-10-10 07:38:25.474 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
+2021-10-10 07:38:25.483 [DefaultDispatcher-worker-4 @request#57] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2021-10-10 07:38:25.484 [DefaultDispatcher-worker-4 @request#57] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2021-10-10 07:38:25.485 [DefaultDispatcher-worker-4 @request#57] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='345ea9a9-49e1-4a8f-983c-6547a2b8032a' WHERE users.id = 3
+2021-10-10 07:38:25.493 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_ja_1', 'ja', 'question_ja_1')
+2021-10-10 07:38:25.495 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_en_1', 'en', 'question_en_1')
+2021-10-10 07:38:25.496 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_ja_2', 'ja', 'question_ja_2')
+2021-10-10 07:38:25.498 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_en_2', 'en', 'question_en_2')
+2021-10-10 07:38:25.501 [DefaultDispatcher-worker-4 @request#61] DEBUG Exposed - SELECT faq.id, faq.lang, faq.question, faq.answer, faq.deleted FROM faq WHERE faq.lang = 'ja' AND faq.deleted = false ORDER BY faq.id DESC
+2021-10-10 07:38:25.505 [Test worker] DEBUG Exposed - DELETE FROM faq
+2021-10-10 07:38:25.508 [Test worker] DEBUG Exposed - DELETE FROM users
 </pre>
 </span>
 </div>
@@ -128,7 +128,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.1.1</a> at Oct 10, 2021, 7:36:09 AM</p>
+<a href="http://www.gradle.org">Gradle 7.1.1</a> at Oct 10, 2021, 7:38:25 AM</p>
 </div>
 </div>
 </body>
