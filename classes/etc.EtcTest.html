@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">4.800s</div>
+<div class="counter">4.182s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,17 +79,17 @@
 </thead>
 <tr>
 <td class="success">index</td>
-<td class="success">0.060s</td>
+<td class="success">0.045s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">indexOnly</td>
-<td class="success">1.716s</td>
+<td class="success">1.526s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">ogp</td>
-<td class="success">3.024s</td>
+<td class="success">2.611s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -97,26 +97,26 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2021-10-10 07:35:29.873 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
-2021-10-10 07:35:30.196 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
-2021-10-10 07:35:30.497 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
-2021-10-10 07:35:31.160 [DefaultDispatcher-worker-1 @request#1] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2021-10-10 07:35:31.164 [DefaultDispatcher-worker-1 @request#1] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2021-10-10 07:35:31.189 [DefaultDispatcher-worker-1 @request#1] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@user', 'test_user', 'test_user', 'c8903fc7-dad6-43bb-aa70-cc6d37948eca')
-2021-10-10 07:35:31.339 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
-2021-10-10 07:35:31.344 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
-2021-10-10 07:35:31.356 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
-2021-10-10 07:35:31.373 [DefaultDispatcher-worker-3 @request#9] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2021-10-10 07:35:31.377 [DefaultDispatcher-worker-3 @request#9] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2021-10-10 07:35:31.385 [DefaultDispatcher-worker-3 @request#9] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='8cfa7f1a-6ec1-46c4-8fa7-14f2d9073235' WHERE users.id = 1
-2021-10-10 07:35:34.361 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
-2021-10-10 07:35:34.367 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
-2021-10-10 07:35:34.384 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
-2021-10-10 07:35:34.395 [DefaultDispatcher-worker-1 @request#25] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2021-10-10 07:35:34.398 [DefaultDispatcher-worker-1 @request#25] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2021-10-10 07:35:34.400 [DefaultDispatcher-worker-1 @request#25] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='6f6b0728-a7ca-4d6d-af9a-465c24310514' WHERE users.id = 1
-2021-10-10 07:35:34.418 [DefaultDispatcher-worker-1 @request#29] DEBUG Exposed - SELECT COUNT(*) FROM faq WHERE faq.id = 1
-2021-10-10 07:35:34.423 [Test worker] DEBUG Exposed - DELETE FROM users
+<pre>2021-10-10 07:35:41.405 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
+2021-10-10 07:35:41.729 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
+2021-10-10 07:35:41.991 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
+2021-10-10 07:35:42.609 [DefaultDispatcher-worker-1 @request#1] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2021-10-10 07:35:42.611 [DefaultDispatcher-worker-1 @request#1] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2021-10-10 07:35:42.633 [DefaultDispatcher-worker-1 @request#1] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@user', 'test_user', 'test_user', 'b0047e38-1b8d-4dcb-b7db-9610a4a6032a')
+2021-10-10 07:35:42.733 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
+2021-10-10 07:35:42.735 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
+2021-10-10 07:35:42.740 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
+2021-10-10 07:35:42.750 [DefaultDispatcher-worker-3 @request#9] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2021-10-10 07:35:42.752 [DefaultDispatcher-worker-3 @request#9] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2021-10-10 07:35:42.759 [DefaultDispatcher-worker-3 @request#9] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='ac092dab-ad37-47d3-aa86-e0dc07fff45a' WHERE users.id = 1
+2021-10-10 07:35:45.343 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
+2021-10-10 07:35:45.345 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
+2021-10-10 07:35:45.370 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
+2021-10-10 07:35:45.376 [DefaultDispatcher-worker-2 @request#25] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2021-10-10 07:35:45.377 [DefaultDispatcher-worker-2 @request#25] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2021-10-10 07:35:45.378 [DefaultDispatcher-worker-2 @request#25] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='3e0f9379-5ed1-4f2b-a20b-1bdfc0cc95f9' WHERE users.id = 1
+2021-10-10 07:35:45.387 [DefaultDispatcher-worker-1 @request#29] DEBUG Exposed - SELECT COUNT(*) FROM faq WHERE faq.id = 1
+2021-10-10 07:35:45.391 [Test worker] DEBUG Exposed - DELETE FROM users
 </pre>
 </span>
 </div>
@@ -128,7 +128,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.1.1</a> at Oct 10, 2021, 7:35:34 AM</p>
+<a href="http://www.gradle.org">Gradle 7.1.1</a> at Oct 10, 2021, 7:35:45 AM</p>
 </div>
 </div>
 </body>
