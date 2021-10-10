@@ -7,7 +7,7 @@ buildscript {
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
         classpath "com.google.cloud.tools:appengine-gradle-plugin:2.4.1"
-        classpath "com.github.jengelman.gradle.plugins:shadow:4.0.3"
+        classpath "com.github.jengelman.gradle.plugins:shadow:6.1.0"
     }
 }
 apply from: 'ext.gradle'
