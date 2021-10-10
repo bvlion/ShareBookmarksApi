@@ -56,7 +56,7 @@ dependencies {
     implementation "io.ktor:ktor-auth:$ktor_version"
     implementation "io.ktor:ktor-auth-jwt:$ktor_version"
     implementation "ch.qos.logback:logback-classic:1.2.1"
-    implementation "org.koin:koin-ktor:2.1.6"
+    implementation "org.koin:koin-ktor:2.2.2"
     implementation "org.jetbrains.exposed:exposed:0.17.7"
     implementation "mysql:mysql-connector-java:5.1.49"
     implementation "org.jsoup:jsoup:1.13.1"
