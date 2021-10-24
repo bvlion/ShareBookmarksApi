@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.126s</div>
+<div class="counter">0.083s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,12 +79,12 @@
 </thead>
 <tr>
 <td class="success">privacyPolicy</td>
-<td class="success">0.050s</td>
+<td class="success">0.045s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">termOfUse</td>
-<td class="success">0.076s</td>
+<td class="success">0.038s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -92,27 +92,29 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2021-10-24 02:04:45.282 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
-2021-10-24 02:04:45.289 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
-2021-10-24 02:04:45.290 [Test worker] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2021-10-24 02:04:45.295 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
-2021-10-24 02:04:45.303 [DefaultDispatcher-worker-3 @request#33] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2021-10-24 02:04:45.304 [DefaultDispatcher-worker-3 @request#33] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2021-10-24 02:04:45.306 [DefaultDispatcher-worker-3 @request#33] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@user', 'test_user', 'test_user', '7e230cae-98d4-474e-b1f5-da808b8b43e6')
-2021-10-24 02:04:45.319 [Test worker] DEBUG Exposed - INSERT INTO term (id, message) VALUES (2, 'privacy_policy')
-2021-10-24 02:04:45.324 [DefaultDispatcher-worker-1 @request#37] DEBUG Exposed - SELECT term.id, term.message FROM term WHERE term.id = 2
-2021-10-24 02:04:45.329 [Test worker] DEBUG Exposed - DELETE FROM term
-2021-10-24 02:04:45.332 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
-2021-10-24 02:04:45.335 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
-2021-10-24 02:04:45.337 [Test worker] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2021-10-24 02:04:45.352 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
-2021-10-24 02:04:45.362 [DefaultDispatcher-worker-1 @request#41] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2021-10-24 02:04:45.364 [DefaultDispatcher-worker-1 @request#41] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2021-10-24 02:04:45.366 [DefaultDispatcher-worker-1 @request#41] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='7a7f2626-3569-4422-ace2-b2f21349d1c5' WHERE users.id = 2
-2021-10-24 02:04:45.382 [Test worker] DEBUG Exposed - INSERT INTO term (id, message) VALUES (1, 'terms_of_use')
-2021-10-24 02:04:45.390 [DefaultDispatcher-worker-1 @request#45] DEBUG Exposed - SELECT term.id, term.message FROM term WHERE term.id = 1
-2021-10-24 02:04:45.401 [Test worker] DEBUG Exposed - DELETE FROM term
-2021-10-24 02:04:45.412 [Test worker] DEBUG Exposed - DELETE FROM users
+<pre>2021-10-24 02:21:36.194 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
+2021-10-24 02:21:36.197 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
+2021-10-24 02:21:36.197 [Test worker] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-10-24 02:21:36.208 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - ConnectionPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@1d7e719a
+2021-10-24 02:21:36.208 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
+2021-10-24 02:21:36.220 [DefaultDispatcher-worker-4 @request#33] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2021-10-24 02:21:36.221 [DefaultDispatcher-worker-4 @request#33] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2021-10-24 02:21:36.223 [DefaultDispatcher-worker-4 @request#33] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@user', 'test_user', 'test_user', '20d1a8cd-88d9-4e68-957c-ffd57c5a4c58')
+2021-10-24 02:21:36.229 [Test worker] DEBUG Exposed - INSERT INTO term (id, message) VALUES (2, 'privacy_policy')
+2021-10-24 02:21:36.233 [DefaultDispatcher-worker-4 @request#37] DEBUG Exposed - SELECT term.id, term.message FROM term WHERE term.id = 2
+2021-10-24 02:21:36.237 [Test worker] DEBUG Exposed - DELETE FROM term
+2021-10-24 02:21:36.239 [Test worker] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active
+2021-10-24 02:21:36.241 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
+2021-10-24 02:21:36.241 [Test worker] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-10-24 02:21:36.245 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - ConnectionPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@3baf692
+2021-10-24 02:21:36.246 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
+2021-10-24 02:21:36.258 [DefaultDispatcher-worker-4 @request#41] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2021-10-24 02:21:36.259 [DefaultDispatcher-worker-4 @request#41] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2021-10-24 02:21:36.260 [DefaultDispatcher-worker-4 @request#41] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='f93fe862-2d52-4eb5-b4ee-6dfc49180b23' WHERE users.id = 2
+2021-10-24 02:21:36.268 [Test worker] DEBUG Exposed - INSERT INTO term (id, message) VALUES (1, 'terms_of_use')
+2021-10-24 02:21:36.272 [DefaultDispatcher-worker-4 @request#45] DEBUG Exposed - SELECT term.id, term.message FROM term WHERE term.id = 1
+2021-10-24 02:21:36.275 [Test worker] DEBUG Exposed - DELETE FROM term
+2021-10-24 02:21:36.277 [Test worker] DEBUG Exposed - DELETE FROM users
 </pre>
 </span>
 </div>
@@ -124,7 +126,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.1.1</a> at Oct 24, 2021, 2:04:45 AM</p>
+<a href="http://www.gradle.org">Gradle 7.1.1</a> at Oct 24, 2021, 2:21:36 AM</p>
 </div>
 </div>
 </body>
