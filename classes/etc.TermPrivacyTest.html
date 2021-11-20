@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.153s</div>
+<div class="counter">0.135s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,12 +79,12 @@
 </thead>
 <tr>
 <td class="success">privacyPolicy</td>
-<td class="success">0.082s</td>
+<td class="success">0.063s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">termOfUse</td>
-<td class="success">0.071s</td>
+<td class="success">0.072s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -92,31 +92,31 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2021-11-14 03:06:12.543 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
-2021-11-14 03:06:12.544 [Test worker] INFO  ktor.test - Application started in 0.003 seconds.
-2021-11-14 03:06:12.547 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
-2021-11-14 03:06:12.548 [Test worker] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2021-11-14 03:06:12.554 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - ConnectionPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@32a480b8
-2021-11-14 03:06:12.554 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
-2021-11-14 03:06:12.570 [DefaultDispatcher-worker-3 @request#19] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2021-11-14 03:06:12.571 [DefaultDispatcher-worker-3 @request#19] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2021-11-14 03:06:12.573 [DefaultDispatcher-worker-3 @request#19] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@user', 'test_user', 'test_user', 'bb27eb71-4088-4b0f-93c8-d0ef6eead3c9')
-2021-11-14 03:06:12.588 [Test worker] DEBUG Exposed - INSERT INTO term (id, message) VALUES (2, 'privacy_policy')
-2021-11-14 03:06:12.599 [DefaultDispatcher-worker-3 @request#23] DEBUG Exposed - SELECT term.id, term.message FROM term WHERE term.id = 2
-2021-11-14 03:06:12.612 [Test worker] DEBUG Exposed - DELETE FROM term
-2021-11-14 03:06:12.623 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
-2021-11-14 03:06:12.624 [Test worker] INFO  ktor.test - Application started in 0.001 seconds.
-2021-11-14 03:06:12.626 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
-2021-11-14 03:06:12.626 [Test worker] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2021-11-14 03:06:12.644 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - ConnectionPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@50873898
-2021-11-14 03:06:12.644 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
-2021-11-14 03:06:12.661 [DefaultDispatcher-worker-3 @request#27] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2021-11-14 03:06:12.662 [DefaultDispatcher-worker-3 @request#27] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2021-11-14 03:06:12.664 [DefaultDispatcher-worker-3 @request#27] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='3a051445-33e6-4685-93ba-31688952d2da' WHERE users.id = 3
-2021-11-14 03:06:12.676 [Test worker] DEBUG Exposed - INSERT INTO term (id, message) VALUES (1, 'terms_of_use')
-2021-11-14 03:06:12.681 [DefaultDispatcher-worker-3 @request#31] DEBUG Exposed - SELECT term.id, term.message FROM term WHERE term.id = 1
-2021-11-14 03:06:12.691 [Test worker] DEBUG Exposed - DELETE FROM term
-2021-11-14 03:06:12.695 [Test worker] DEBUG Exposed - DELETE FROM users
+<pre>2021-11-20 07:42:13.875 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
+2021-11-20 07:42:13.876 [Test worker] INFO  ktor.test - Application started in 0.001 seconds.
+2021-11-20 07:42:13.878 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
+2021-11-20 07:42:13.879 [Test worker] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-11-20 07:42:13.886 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - ConnectionPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@6c7e54
+2021-11-20 07:42:13.887 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
+2021-11-20 07:42:13.896 [DefaultDispatcher-worker-3 @request#17] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2021-11-20 07:42:13.898 [DefaultDispatcher-worker-3 @request#17] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2021-11-20 07:42:13.899 [DefaultDispatcher-worker-3 @request#17] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@user', 'test_user', 'test_user', 'b72f6a75-bd76-476c-94bc-c748a3cad71b')
+2021-11-20 07:42:13.913 [Test worker] DEBUG Exposed - INSERT INTO term (id, message) VALUES (2, 'privacy_policy')
+2021-11-20 07:42:13.920 [DefaultDispatcher-worker-1 @request#21] DEBUG Exposed - SELECT term.id, term.message FROM term WHERE term.id = 2
+2021-11-20 07:42:13.925 [Test worker] DEBUG Exposed - DELETE FROM term
+2021-11-20 07:42:13.939 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
+2021-11-20 07:42:13.940 [Test worker] INFO  ktor.test - Application started in 0.001 seconds.
+2021-11-20 07:42:13.942 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
+2021-11-20 07:42:13.942 [Test worker] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-11-20 07:42:13.963 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - ConnectionPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c799f62
+2021-11-20 07:42:13.964 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
+2021-11-20 07:42:13.975 [DefaultDispatcher-worker-3 @request#25] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2021-11-20 07:42:13.977 [DefaultDispatcher-worker-3 @request#25] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2021-11-20 07:42:13.978 [DefaultDispatcher-worker-3 @request#25] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='d278881e-a76f-4da9-b817-a010ddb94e72' WHERE users.id = 2
+2021-11-20 07:42:13.990 [Test worker] DEBUG Exposed - INSERT INTO term (id, message) VALUES (1, 'terms_of_use')
+2021-11-20 07:42:13.998 [DefaultDispatcher-worker-3 @request#29] DEBUG Exposed - SELECT term.id, term.message FROM term WHERE term.id = 1
+2021-11-20 07:42:14.002 [Test worker] DEBUG Exposed - DELETE FROM term
+2021-11-20 07:42:14.013 [Test worker] DEBUG Exposed - DELETE FROM users
 </pre>
 </span>
 </div>
@@ -128,7 +128,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.1.1</a> at Nov 14, 2021, 3:06:15 AM</p>
+<a href="http://www.gradle.org">Gradle 7.1.1</a> at Nov 20, 2021, 7:42:17 AM</p>
 </div>
 </div>
 </body>
