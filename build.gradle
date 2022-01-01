@@ -64,7 +64,7 @@ dependencies {
     implementation "com.zaxxer:HikariCP:5.0.0"
 
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
-    testImplementation "io.mockk:mockk:1.12.1"
+    testImplementation "io.mockk:mockk:1.12.2"
     testImplementation "org.json:json:20211205"
 
 }
