@@ -5,13 +5,11 @@ import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.routing.post
-import io.ktor.util.*
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.koin.ktor.ext.inject
 
 object UsersRouter {
 
-  @KtorExperimentalAPI
   fun Routing.users() {
     val controller: UsersController by inject()
 

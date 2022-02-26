@@ -14,7 +14,6 @@ import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import io.ktor.util.*
 import net.ambitious.sharebookmarks.etc.EtcRouter.etc
 import net.ambitious.sharebookmarks.etc.EtcRouter.index
 import net.ambitious.sharebookmarks.items.ItemsRouter.items
@@ -27,7 +26,6 @@ import org.koin.ktor.ext.Koin
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.transactions.transaction
 
-@KtorExperimentalAPI
 @Suppress("unused")
 fun Application.module() {
   install(Koin) {

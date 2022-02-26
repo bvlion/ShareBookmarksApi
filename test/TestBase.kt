@@ -2,7 +2,6 @@ import io.ktor.config.*
 import io.ktor.http.*
 import io.ktor.server.engine.*
 import io.ktor.server.testing.*
-import io.ktor.util.*
 import net.ambitious.sharebookmarks.module
 import net.ambitious.sharebookmarks.users.UsersDao
 import org.jetbrains.exposed.sql.deleteAll
@@ -15,7 +14,6 @@ import org.slf4j.LoggerFactory
 open class TestBase {
   protected lateinit var engine: TestApplicationEngine
 
-  @KtorExperimentalAPI
   @Before
   fun setUp() {
     engine = TestApplicationEngine(applicationEngineEnvironment {

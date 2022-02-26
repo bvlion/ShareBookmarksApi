@@ -1,7 +1,6 @@
 package net.ambitious.sharebookmarks.users
 
 import io.ktor.application.*
-import io.ktor.util.*
 import net.ambitious.sharebookmarks.Util
 import org.jetbrains.exposed.sql.and
 import org.jetbrains.exposed.sql.insert
@@ -9,7 +8,6 @@ import org.jetbrains.exposed.sql.update
 import java.util.*
 
 class UsersController {
-  @KtorExperimentalAPI
   fun auth(user: UsersModel.UserRequest, environment: ApplicationEnvironment): UsersModel.AuthResponse {
     // 共有で先にユーザー登録だけされていた方は UID を更新する
     UsersEntity.find { (UsersDao.email eq user.email) and UsersDao.uid.isNull() }.firstOrNull()?.let { dbUser ->

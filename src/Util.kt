@@ -4,7 +4,6 @@ import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
 import io.ktor.application.*
 import io.ktor.auth.*
-import io.ktor.util.*
 import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
 import org.joda.time.format.DateTimeFormat
@@ -33,11 +32,9 @@ object Util {
     .withSubject(hash)
     .sign(algorithm)
 
-  @KtorExperimentalAPI
   fun getAlgorithm(environment: ApplicationEnvironment): Algorithm =
     Algorithm.HMAC256(environment.config.property("app.auth.secret").getString())
 
-  @KtorExperimentalAPI
   fun getAudience(environment: ApplicationEnvironment) =
     environment.config.property("app.auth.audience").getString()
 
