@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.170s</div>
+<div class="counter">0.135s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,12 +79,12 @@
 </thead>
 <tr>
 <td class="success">enFaq</td>
-<td class="success">0.077s</td>
+<td class="success">0.087s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">jaFaq</td>
-<td class="success">0.093s</td>
+<td class="success">0.048s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -92,37 +92,37 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2022-04-16 04:20:31.611 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
-2022-04-16 04:20:31.612 [Test worker] INFO  ktor.test - Application started in 0.001 seconds.
-2022-04-16 04:20:31.614 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
-2022-04-16 04:20:31.614 [Test worker] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2022-04-16 04:20:31.621 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - ConnectionPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@66bbca83
-2022-04-16 04:20:31.621 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
-2022-04-16 04:20:31.629 [DefaultDispatcher-worker-3 @request#19] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2022-04-16 04:20:31.631 [DefaultDispatcher-worker-3 @request#19] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2022-04-16 04:20:31.633 [DefaultDispatcher-worker-3 @request#19] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@user', 'test_user', 'test_user', '79d619fa-c9fc-48ef-a380-287ac9bb1825')
-2022-04-16 04:20:31.644 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_ja_1', 'ja', 'question_ja_1')
-2022-04-16 04:20:31.646 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_en_1', 'en', 'question_en_1')
-2022-04-16 04:20:31.648 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_ja_2', 'ja', 'question_ja_2')
-2022-04-16 04:20:31.649 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_en_2', 'en', 'question_en_2')
-2022-04-16 04:20:31.667 [DefaultDispatcher-worker-3 @request#23] DEBUG Exposed - SELECT faq.id, faq.lang, faq.question, faq.answer, faq.deleted FROM faq WHERE faq.lang = 'en' AND faq.deleted = false ORDER BY faq.id DESC
-2022-04-16 04:20:31.684 [Test worker] DEBUG Exposed - DELETE FROM faq
-2022-04-16 04:20:31.689 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
-2022-04-16 04:20:31.689 [Test worker] INFO  ktor.test - Application started in 0.001 seconds.
-2022-04-16 04:20:31.691 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
-2022-04-16 04:20:31.691 [Test worker] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2022-04-16 04:20:31.725 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - ConnectionPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@db31d19
-2022-04-16 04:20:31.725 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
-2022-04-16 04:20:31.744 [DefaultDispatcher-worker-3 @request#27] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
-2022-04-16 04:20:31.746 [DefaultDispatcher-worker-3 @request#27] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
-2022-04-16 04:20:31.747 [DefaultDispatcher-worker-3 @request#27] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='fc95d950-54e2-435f-aeef-bfd8d524cc6f' WHERE users.id = 3
-2022-04-16 04:20:31.757 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_ja_1', 'ja', 'question_ja_1')
-2022-04-16 04:20:31.758 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_en_1', 'en', 'question_en_1')
-2022-04-16 04:20:31.760 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_ja_2', 'ja', 'question_ja_2')
-2022-04-16 04:20:31.761 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_en_2', 'en', 'question_en_2')
-2022-04-16 04:20:31.765 [DefaultDispatcher-worker-3 @request#31] DEBUG Exposed - SELECT faq.id, faq.lang, faq.question, faq.answer, faq.deleted FROM faq WHERE faq.lang = 'ja' AND faq.deleted = false ORDER BY faq.id DESC
-2022-04-16 04:20:31.771 [Test worker] DEBUG Exposed - DELETE FROM faq
-2022-04-16 04:20:31.782 [Test worker] DEBUG Exposed - DELETE FROM users
+<pre>2022-04-16 04:20:44.561 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
+2022-04-16 04:20:44.562 [Test worker] INFO  ktor.test - Application started in 0.001 seconds.
+2022-04-16 04:20:44.568 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
+2022-04-16 04:20:44.569 [Test worker] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2022-04-16 04:20:44.577 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - ConnectionPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@43660d76
+2022-04-16 04:20:44.577 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
+2022-04-16 04:20:44.590 [DefaultDispatcher-worker-2 @request#19] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2022-04-16 04:20:44.592 [DefaultDispatcher-worker-2 @request#19] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2022-04-16 04:20:44.594 [DefaultDispatcher-worker-2 @request#19] DEBUG Exposed - INSERT INTO users (email, fcm_token, uid, user_hash) VALUES ('test@user', 'test_user', 'test_user', '7c6274bd-5a9a-447e-85db-c64ca18febc1')
+2022-04-16 04:20:44.609 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_ja_1', 'ja', 'question_ja_1')
+2022-04-16 04:20:44.610 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_en_1', 'en', 'question_en_1')
+2022-04-16 04:20:44.611 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_ja_2', 'ja', 'question_ja_2')
+2022-04-16 04:20:44.615 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_en_2', 'en', 'question_en_2')
+2022-04-16 04:20:44.623 [DefaultDispatcher-worker-2 @request#23] DEBUG Exposed - SELECT faq.id, faq.lang, faq.question, faq.answer, faq.deleted FROM faq WHERE faq.lang = 'en' AND faq.deleted = false ORDER BY faq.id DESC
+2022-04-16 04:20:44.642 [Test worker] DEBUG Exposed - DELETE FROM faq
+2022-04-16 04:20:44.647 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
+2022-04-16 04:20:44.647 [Test worker] INFO  ktor.test - Application started in 0.001 seconds.
+2022-04-16 04:20:44.650 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Starting...
+2022-04-16 04:20:44.650 [Test worker] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2022-04-16 04:20:44.657 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - ConnectionPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@79389932
+2022-04-16 04:20:44.658 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - ConnectionPool - Start completed.
+2022-04-16 04:20:44.667 [DefaultDispatcher-worker-2 @request#27] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.email = 'test@user' AND users.uid IS NULL
+2022-04-16 04:20:44.668 [DefaultDispatcher-worker-2 @request#27] DEBUG Exposed - SELECT users.id, users.email, users.uid, users.user_hash, users.fcm_token, users.premium FROM users WHERE users.uid = 'test_user' AND users.email = 'test@user'
+2022-04-16 04:20:44.669 [DefaultDispatcher-worker-2 @request#27] DEBUG Exposed - UPDATE users SET fcm_token='test_user', user_hash='f9bb60f7-7d8c-4dc3-aa26-395d27684cf6' WHERE users.id = 3
+2022-04-16 04:20:44.676 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_ja_1', 'ja', 'question_ja_1')
+2022-04-16 04:20:44.677 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_en_1', 'en', 'question_en_1')
+2022-04-16 04:20:44.678 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_ja_2', 'ja', 'question_ja_2')
+2022-04-16 04:20:44.679 [Test worker] DEBUG Exposed - INSERT INTO faq (answer, lang, question) VALUES ('answer_en_2', 'en', 'question_en_2')
+2022-04-16 04:20:44.683 [DefaultDispatcher-worker-2 @request#31] DEBUG Exposed - SELECT faq.id, faq.lang, faq.question, faq.answer, faq.deleted FROM faq WHERE faq.lang = 'ja' AND faq.deleted = false ORDER BY faq.id DESC
+2022-04-16 04:20:44.692 [Test worker] DEBUG Exposed - DELETE FROM faq
+2022-04-16 04:20:44.696 [Test worker] DEBUG Exposed - DELETE FROM users
 </pre>
 </span>
 </div>
@@ -134,7 +134,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.1.1</a> at Apr 16, 2022, 4:20:35 AM</p>
+<a href="http://www.gradle.org">Gradle 7.1.1</a> at Apr 16, 2022, 4:20:48 AM</p>
 </div>
 </div>
 </body>
