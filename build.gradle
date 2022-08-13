@@ -50,7 +50,7 @@ static String captureVersion(Dependency dependency) {
 }
 
 dependencies {
-    def ktor_version = captureVersion(implementation("io.ktor:ktor-server-netty:1.6.7"))
+    def ktor_version = captureVersion(implementation("io.ktor:ktor-server-netty:2.1.0"))
     implementation "io.ktor:ktor-locations:$ktor_version"
     implementation "io.ktor:ktor-jackson:$ktor_version"
     implementation "io.ktor:ktor-auth:$ktor_version"
