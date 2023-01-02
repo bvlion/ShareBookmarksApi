@@ -28,7 +28,7 @@ jobs:
           ${{ runner.os }}-gradle-
 
     - name: Set Up GCP Auth
-      uses: google-github-actions/setup-gcloud@master
+      uses: google-github-actions/setup-gcloud@v1
       with:
         project_id: ${{ secrets.GCP_PROJECT_ID }}
         service_account_key: ${{ secrets.GCP_SA_KEY }}
