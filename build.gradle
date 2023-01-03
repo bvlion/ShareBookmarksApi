@@ -76,8 +76,6 @@ task yamlCopy(type: Copy) {
     into 'build/staged-app'
 }
 
-task stage {
-    dependsOn assemble
+shadowJar {
+    classifier = null
 }
-
-appengineDeploy.dependsOn yamlCopy

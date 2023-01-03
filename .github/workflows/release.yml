@@ -37,7 +37,7 @@ jobs:
 
     - name: Setup secrets
       run: |
-        echo "${{ secrets.SECRET_YAML }}" | base64 -d > secret.yaml
+        echo "${{ secrets.SECRET_YAML }}" | base64 -d >> app.yaml
 
         VERSION=$(echo ${{ github.ref }} | sed -e "s#refs/tags/##g" | sed -e 's/\./-/g')
         sed -i -e "s/version_code/$VERSION/g" ext.gradle
