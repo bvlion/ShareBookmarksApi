@@ -65,7 +65,7 @@ dependencies {
 
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
     testImplementation "io.mockk:mockk:1.12.5"
-    testImplementation "org.json:json:20220320"
+    testImplementation "org.json:json:20231013"
 
 }
 
