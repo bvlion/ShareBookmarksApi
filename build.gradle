@@ -58,7 +58,7 @@ dependencies {
     implementation "ch.qos.logback:logback-classic:1.4.5"
     implementation "org.koin:koin-ktor:2.2.2"
     implementation "org.jetbrains.exposed:exposed:0.17.14"
-    implementation "mysql:mysql-connector-java:8.0.30"
+    implementation "mysql:mysql-connector-java:8.0.33"
     implementation "org.jsoup:jsoup:1.15.2"
     implementation "com.google.cloud.sql:mysql-socket-factory:1.6.3"
     implementation "com.zaxxer:HikariCP:5.0.1"
