@@ -31,11 +31,11 @@ class EtcTest : TestBase() {
   fun ogp() {
     with(engine) {
       // 取得できるパターン
-      handleRequest(HttpMethod.Get, "/etc/ogp?url=https://www.ambitious-i.net").response.run {
+      handleRequest(HttpMethod.Get, "/etc/ogp?url=https://www.ambitious-i.net/blog/slim4_on_xservers_nginx/").response.run {
         assertEquals(HttpStatusCode.OK, status())
         assertEquals(
           JsonObject(
-            mapOf("url" to "https://www.ambitious-i.net/img/main.jpg")
+            mapOf("url" to "https://github.com/bvlion/blog2/assets/24517539/dcb05741-c42d-43e4-a1a8-7be747b05f26")
           ).toString(),
           content
         )
