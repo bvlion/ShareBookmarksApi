@@ -1,6 +1,7 @@
 package net.ambitious.sharebookmarks.shares
 
-import org.jetbrains.exposed.dao.IntIdTable
+import org.jetbrains.exposed.dao.id.IntIdTable
+import org.jetbrains.exposed.sql.jodatime.datetime
 
 object SharesDao : IntIdTable("share") {
   val itemsId = integer("items_id")

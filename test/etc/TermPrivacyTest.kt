@@ -5,7 +5,7 @@ import TestBase
 import io.ktor.http.*
 import io.ktor.server.testing.*
 import net.ambitious.sharebookmarks.etc.EtcDao
-import org.jetbrains.exposed.dao.EntityID
+import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.sql.deleteAll
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.transactions.transaction

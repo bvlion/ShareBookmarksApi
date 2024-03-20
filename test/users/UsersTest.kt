@@ -5,7 +5,11 @@ import TestBase
 import io.ktor.http.*
 import io.ktor.server.testing.*
 import net.ambitious.sharebookmarks.users.UsersDao
+import org.jetbrains.exposed.sql.Op
+import org.jetbrains.exposed.sql.SqlExpressionBuilder
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.select
+import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.json.JSONObject
 import org.json.JSONTokener
@@ -42,7 +46,7 @@ class UsersTest : TestBase() {
         Assert.assertEquals(json["premium"], false)
         Assert.assertEquals(HttpStatusCode.OK, status())
         transaction {
-          val user = UsersDao.select { UsersDao.email eq "test@example.com" }.first()
+          val user = UsersDao.selectAll().where { UsersDao.email eq "test@example.com" }.first()
           Assert.assertEquals(user[UsersDao.uid], "test3r2test_test")
           Assert.assertEquals(user[UsersDao.fcmToken], "test")
         }
@@ -63,7 +67,7 @@ class UsersTest : TestBase() {
         Assert.assertEquals(json["premium"], false)
         Assert.assertEquals(HttpStatusCode.OK, status())
         transaction {
-          val user = UsersDao.select { UsersDao.email eq "test@example.com" }.first()
+          val user = UsersDao.selectAll().where { UsersDao.email eq "test@example.com" }.first()
           Assert.assertEquals(user[UsersDao.fcmToken], "test2")
         }
       }

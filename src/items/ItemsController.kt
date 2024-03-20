@@ -2,8 +2,11 @@ package net.ambitious.sharebookmarks.items
 
 import net.ambitious.sharebookmarks.Util
 import net.ambitious.sharebookmarks.shares.SharesDao
-import org.jetbrains.exposed.dao.EntityID
+import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.sql.*
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.inList
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.isNull
 import org.joda.time.DateTime
 
 class ItemsController {
@@ -65,7 +68,7 @@ class ItemsController {
 
     // 全アイテムの所有者情報を親フォルダの owner で上書きする
     ItemsDao
-      .select { ItemsDao.url.isNull() }
+      .selectAll().where { ItemsDao.url.isNull() }
       .forEach {
         if (idMap.contains(it[ItemsDao.ownerUserId])) {
           idMap[it[ItemsDao.ownerUserId]]!!.add(it[ItemsDao.id].value)
@@ -93,18 +96,18 @@ class ItemsController {
   fun getItems(userId: Int, lastUpdate: String?) = ItemsModel.GetList(
       ArrayList(
         ItemsDao
-          .select { ItemsDao.ownerUserId eq userId }
+          .selectAll().where { ItemsDao.ownerUserId eq userId }
           .map { ItemsModel.entityToModel(it, 0) }
       ).apply {
         val list = arrayListOf<ItemsModel.Item>()
         val idAlias = SharesDao.id.max().alias("id")
         // 同じフォルダを再共有すると削除と混同するため最新のみとする
-        val maxIdList = SharesDao.slice(idAlias)
-          .select { SharesDao.shareUserId eq userId }
+        val maxIdList = SharesDao.select(idAlias)
+          .where { SharesDao.shareUserId eq userId }
           .groupBy(SharesDao.itemsId)
           .map { it[idAlias]!!.value }
           .toList()
-        SharesDao.select { (SharesDao.shareUserId eq userId) and SharesDao.id.inList(maxIdList) }
+        SharesDao.selectAll().where { (SharesDao.shareUserId eq userId) and SharesDao.id.inList(maxIdList) }
           .forEach {
           getItemsFromFolderId(
             list,
@@ -131,7 +134,7 @@ class ItemsController {
   ) {
     // フォルダ自身を追加
     val folders = ItemsDao
-      .select { ItemsDao.id eq folderId }
+      .selectAll().where { ItemsDao.id eq folderId }
       .map { ItemsModel.entityToModel(it, ownerType, parentId, updated, deleted) }
     if (folders.isEmpty()) {
       return
@@ -141,7 +144,7 @@ class ItemsController {
 
     // 紐づくブックマークを取得
     ItemsDao
-      .select { ItemsDao.parentId eq folderId }
+      .selectAll().where { ItemsDao.parentId eq folderId }
       .map { ItemsModel.entityToModel(it, ownerType, updated = updated, deleted = deleted) }
       .forEach {
         // フォルダであれば再起的に取得する

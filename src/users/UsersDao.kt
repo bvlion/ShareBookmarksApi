@@ -1,6 +1,6 @@
 package net.ambitious.sharebookmarks.users
 
-import org.jetbrains.exposed.dao.IntIdTable
+import org.jetbrains.exposed.dao.id.IntIdTable
 
 object UsersDao : IntIdTable("users") {
   val email = text("email")

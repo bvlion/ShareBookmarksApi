@@ -1,6 +1,7 @@
 package net.ambitious.sharebookmarks.notifications
 
-import org.jetbrains.exposed.dao.IntIdTable
+import org.jetbrains.exposed.dao.id.IntIdTable
+import org.jetbrains.exposed.sql.jodatime.datetime
 
 object NotificationsDao : IntIdTable("notifications") {
   val title = text("title")

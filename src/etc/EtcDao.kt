@@ -1,6 +1,6 @@
 package net.ambitious.sharebookmarks.etc
 
-import org.jetbrains.exposed.dao.IntIdTable
+import org.jetbrains.exposed.dao.id.IntIdTable
 
 object EtcDao {
   object Term: IntIdTable("term") {

@@ -1,14 +1,14 @@
 package net.ambitious.sharebookmarks.etc
 
 import net.ambitious.sharebookmarks.Util
-import org.jetbrains.exposed.sql.SortOrder
-import org.jetbrains.exposed.sql.and
-import org.jetbrains.exposed.sql.select
+import org.jetbrains.exposed.sql.*
 
 class EtcController {
-  fun message(id: Int) = EtcDao.Term.select {
+  fun message(id: Int) = EtcDao.Term.selectAll().where {
     EtcDao.Term.id eq id
-  }.map { mapOf(Pair("message", it[EtcDao.Term.message])) }.first()
+  }.map {
+    mapOf(Pair("message", it[EtcDao.Term.message]))
+  }.first()
 
   fun getHttpOgpImage(url: String?) = OgpGet(
     url?.let {
@@ -24,7 +24,7 @@ class EtcController {
 
   fun faq(lang: String?) = mapOf(
     Pair("faq",
-      EtcDao.Faq.select {
+      EtcDao.Faq.selectAll().where {
         (EtcDao.Faq.lang eq (lang ?: "ja")) and (EtcDao.Faq.deleted eq false)
       }.orderBy(EtcDao.Faq.id to SortOrder.DESC)
         .map {
@@ -35,7 +35,7 @@ class EtcController {
         })
   )
 
-  fun getTime() = EtcDao.Faq.select { EtcDao.Faq.id eq 1 }.count().let {
+  fun getTime() = EtcDao.Faq.selectAll().where { EtcDao.Faq.id eq 1 }.count().let {
     Util.datetimeFormat(null)
   }
 
