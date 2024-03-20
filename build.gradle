@@ -33,6 +33,10 @@ repositories {
     google()
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
 appengine {
     stage {
         setAppEngineDirectory(".")
@@ -58,7 +62,6 @@ dependencies {
     implementation "ch.qos.logback:logback-classic:1.4.5"
     implementation "org.koin:koin-ktor:2.2.2"
     implementation "org.jetbrains.exposed:exposed:0.17.14"
-    implementation "mysql:mysql-connector-java:8.0.30"
     implementation "org.jsoup:jsoup:1.15.2"
     implementation "com.google.cloud.sql:mysql-socket-factory:1.6.3"
 
@@ -68,6 +71,7 @@ dependencies {
     implementation "org.jetbrains.exposed:exposed-jdbc:$exposed_version"
     implementation "org.jetbrains.exposed:exposed-jodatime:$exposed_version"
     implementation "com.zaxxer:HikariCP:5.1.0"
+    implementation "com.mysql:mysql-connector-j:8.3.0"
 
 
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
