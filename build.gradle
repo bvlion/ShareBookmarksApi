@@ -5,8 +5,8 @@ buildscript {
     }
     
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20"
-        classpath "com.google.cloud.tools:appengine-gradle-plugin:2.4.4"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.23"
+        classpath "com.google.cloud.tools:appengine-gradle-plugin:2.8.0"
         classpath "com.github.jengelman.gradle.plugins:shadow:6.1.0"
     }
 }
@@ -69,13 +69,11 @@ dependencies {
 
 }
 
-kotlin.experimental.coroutines = 'enable'
-
-task yamlCopy(type: Copy) {
+tasks.register('yamlCopy', Copy) {
     from 'secret.yaml'
     into 'build/staged-app'
 }
 
 shadowJar {
-    classifier = null
+    archiveClassifier = null
 }

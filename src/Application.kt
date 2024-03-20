@@ -75,7 +75,7 @@ fun Application.module() {
 
   Database.connect(HikariDataSource(
     HikariConfig().apply {
-      driverClassName = "com.mysql.jdbc.Driver"
+      driverClassName = "com.mysql.cj.jdbc.Driver"
       jdbcUrl = environment.config.property("app.database.url").getString()
       username = environment.config.property("app.database.user").getString()
       password = environment.config.property("app.database.password").getString()
