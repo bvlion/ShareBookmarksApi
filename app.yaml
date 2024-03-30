@@ -1,4 +1,4 @@
-runtime: java11
+runtime: java17
 entrypoint: 'java -Xmx32m -jar *.jar'
 
 automatic_scaling:
